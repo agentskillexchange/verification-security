@@ -1,32 +1,43 @@
 # [Skill Name]
 
-> One-sentence description of what this skill does. Written for the AI model — describe when to trigger it.
+> One-sentence trigger-oriented description of when an AI agent should use this skill.
 
 ## When to Use
 
 Use this skill when:
+
 - [Trigger condition 1]
 - [Trigger condition 2]
 - [Trigger condition 3]
 
-Phrases that should activate this skill: "[example phrase]", "[example phrase 2]"
+Example trigger phrases: "[example phrase]", "[example phrase 2]"
 
 ## NOT for
 
-Do NOT use this skill for:
-- [Anti-pattern 1]
-- [Anti-pattern 2]
+Do not use this skill for:
+
+- [Anti-trigger 1]
+- [Anti-trigger 2]
+- [Situation where a different skill or manual review is required]
 
 ## Prerequisites
 
 Before using this skill, ensure:
+
 - [ ] [Required tool or API key]
 - [ ] [Required environment variable: `MY_API_KEY`]
-- [ ] [Required software: e.g., Node.js 18+]
+- [ ] [Required software or service access]
 
-## How It Works
+## Instructions
 
-[Brief explanation of the approach — 2-4 sentences. What does the skill actually do step by step?]
+[Describe what the agent should do, step by step. Keep the main instructions concise. Move long references, examples, schemas, or provider-specific details into separate files when useful.]
+
+## Safety and Permissions
+
+- External services used: [list or "none"]
+- Data sent externally: [describe or "none"]
+- Destructive actions: [describe confirmation requirements or "none"]
+- Required user confirmation: [when the agent must ask first]
 
 ## Usage Examples
 
@@ -48,4 +59,4 @@ Before using this skill, ensure:
 ## References
 
 - [Link to documentation]
-- [Link to related skill]
+- [Link to related skill or source]

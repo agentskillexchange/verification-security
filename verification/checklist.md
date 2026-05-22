@@ -1,71 +1,75 @@
 # Agent Skill Verification Checklist
 
-Use this checklist before submitting a skill to AgentSkillExchange.com.
+Use this checklist before submitting a skill to Agent Skill Exchange or requesting security review.
 
-## Tier 1 — Basic Listing Requirements
+Public trust labels are limited to **Published** and **Security Reviewed**. This checklist separates basic publishing readiness from the additional security review required for the Security Reviewed label.
 
-### Identity & Description
-- [ ] Skill has a clear, specific name (not generic like "Helper Skill")
-- [ ] `description` field explains what the skill does in 1–2 sentences
-- [ ] Description is written for the **AI model** (trigger-oriented), not humans
-- [ ] Skill has at least one defined use case
+## Published Readiness
+
+### Identity and Description
+
+- [ ] Skill has a clear, specific name, not a generic name such as "Helper Skill".
+- [ ] `description` explains when the AI model should use the skill.
+- [ ] The description is trigger-oriented and concise.
+- [ ] The skill has at least one concrete use case.
 
 ### SKILL.md Structure
-- [ ] File is valid Markdown
-- [ ] Has a primary `## When to Use` or equivalent trigger section
-- [ ] Has a `## NOT for` or equivalent anti-trigger section
-- [ ] Has a `## Gotchas & Known Limitations` section
-- [ ] Instructions are clear and unambiguous
 
-### Prerequisites
-- [ ] All required tools, API keys, or environment variables are listed
-- [ ] Setup steps are documented or linked
+- [ ] File is valid Markdown.
+- [ ] Trigger conditions are explicit.
+- [ ] Anti-triggers or out-of-scope cases are explicit.
+- [ ] Gotchas, limitations, or failure modes are documented.
+- [ ] Instructions are clear enough for an agent to follow without guessing.
 
----
+### Operational Requirements
 
-## Tier 2 — Verified Badge
+- [ ] Required tools, API keys, services, or environment variables are listed.
+- [ ] Setup steps are documented or linked.
+- [ ] Expected inputs and outputs are clear.
+- [ ] The skill has a single primary responsibility.
+- [ ] No hardcoded credentials or personal environment paths are present.
 
-All Tier 1 items, plus:
+### Catalog Fit
 
-### Quality
-- [ ] Skill has been tested with at least one real AI agent
-- [ ] Edge cases are documented in Gotchas section
-- [ ] Skill does not try to do too many unrelated things (single responsibility)
-- [ ] Progressive disclosure used where appropriate (references external files for detail)
-- [ ] No hardcoded credentials or environment-specific paths in SKILL.md
+- [ ] Category and tags match the skill's actual purpose.
+- [ ] The skill does not duplicate an existing catalog skill without a clear reason.
+- [ ] Source or upstream links are included when available.
 
-### Documentation
-- [ ] Examples provided (at least one sample interaction or command)
-- [ ] Output format documented if skill produces structured data
-- [ ] Error handling / failure modes described
-- [ ] Version or last-updated date present
+## Security Reviewed
 
-### Composition
-- [ ] If skill calls other skills, dependencies are declared
-- [ ] Skill can function standalone OR clearly states what it requires
-
----
-
-## Tier 3 — Security Reviewed Badge
-
-All Tier 2 items, plus: see [`security/review-guide.md`](../security/review-guide.md)
+Security Reviewed skills must satisfy the Published readiness checks plus the items below. See [`../security/review-guide.md`](../security/review-guide.md) for reviewer workflow.
 
 ### Prompt Injection
-- [ ] Skill does not pass untrusted external content directly to the model as instructions
-- [ ] Any user-provided input is treated as data, not commands
-- [ ] Skill does not execute arbitrary code from external sources
+
+- [ ] External or user-provided content is treated as data, not instructions.
+- [ ] The skill does not tell the agent to follow instructions found inside untrusted content.
+- [ ] The skill includes guidance for separating source content from agent instructions when applicable.
+- [ ] The skill does not execute arbitrary code copied from external sources.
 
 ### Data Handling
-- [ ] Skill does not exfiltrate data to external services without explicit user consent
-- [ ] PII handling documented if skill processes personal data
-- [ ] Secrets/tokens are never logged or echoed
 
-### Scope
-- [ ] Skill only requests permissions it needs (principle of least privilege)
-- [ ] Destructive operations require explicit confirmation
-- [ ] Skill does not modify files/systems outside its declared scope
+- [ ] Data sent to external services is disclosed.
+- [ ] PII or sensitive-data handling is documented when relevant.
+- [ ] Secrets, tokens, cookies, and environment values are never logged or echoed.
+- [ ] Outputs avoid exposing private source content unless the user explicitly asked for it.
+
+### Scope and Permissions
+
+- [ ] Requested permissions are necessary for the skill's purpose.
+- [ ] File, network, browser, email, or messaging access is scoped and justified.
+- [ ] Destructive or external actions require explicit confirmation.
+- [ ] The skill does not modify systems outside its declared scope.
 
 ### Tool Use
-- [ ] All tools/APIs the skill calls are documented
-- [ ] Skill does not silently call unexpected external services
-- [ ] Rate limiting and error handling for external calls are documented
+
+- [ ] Tools and APIs called by the skill are documented.
+- [ ] External calls are intentional and reviewable.
+- [ ] Rate limits, authentication failures, and partial failures are handled or documented.
+- [ ] The skill avoids silent side effects.
+
+### Review Evidence
+
+- [ ] Automated scan was run with `security/tools/scan.sh`.
+- [ ] Reviewer manually inspected the full skill instructions.
+- [ ] Reviewer tested risky flows in a sandbox or non-production context when practical.
+- [ ] Findings and review decision are documented in the relevant catalog PR or review record.

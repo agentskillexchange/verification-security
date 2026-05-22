@@ -1,40 +1,45 @@
 # AgentSkill Specification
 
-Version: 1.0 | Maintained by: AgentSkillExchange.com
+Version: 1.0
 
 ## What Is a Skill?
 
 An agent skill is a structured set of instructions that tells an AI agent:
-1. **When** to activate (trigger conditions)
-2. **What** to do (instructions)
-3. **When NOT** to activate (anti-triggers)
-4. **What can go wrong** (gotchas)
 
-Skills are delivered to the agent via a `SKILL.md` file loaded into its context.
+1. When to activate.
+2. What to do.
+3. When not to activate.
+4. What can go wrong.
+5. Which tools, files, services, or permissions are required.
 
-## Required Fields
+Skills are usually delivered through a `SKILL.md` file loaded into the agent's context.
 
-| Field | Description |
-|-------|-------------|
-| Name | Clear, specific skill name |
-| Description | 1–2 sentence trigger-oriented description (for the model) |
-| When to Use | Explicit trigger conditions |
-| NOT for | Explicit anti-triggers |
-| Gotchas | Known limitations and failure modes |
+## Required Sections
 
-## Recommended Fields
+| Section | Purpose |
+|---------|---------|
+| Name | Clear, specific skill name. |
+| Description | Trigger-oriented description written for the model. |
+| When to Use | Explicit trigger conditions. |
+| NOT for | Anti-triggers and out-of-scope cases. |
+| Instructions | What the agent should do. |
+| Gotchas | Known limitations, risks, and failure modes. |
 
-| Field | Description |
-|-------|-------------|
-| Prerequisites | Required tools, keys, env vars |
-| Examples | Sample usage |
-| References | Links to docs, related skills |
-| Version | Last updated date |
+## Recommended Sections
+
+| Section | Purpose |
+|---------|---------|
+| Prerequisites | Required tools, keys, services, permissions, or environment variables. |
+| Examples | Sample usage or expected interactions. |
+| Output Format | Required shape for generated output, if any. |
+| References | Docs, related files, or source links. |
+| Version | Last updated date or compatibility note. |
 
 ## Design Principles
 
-1. **Description is for the model, not humans** — it should tell the AI when to trigger the skill
-2. **Single responsibility** — one skill, one job
-3. **Progressive disclosure** — put details in reference files, not inline
-4. **Gotchas are high-signal** — this section helps the model avoid known failure modes
-5. **Composability** — skills should work standalone and as part of chains
+1. Description is for the model, not marketing copy.
+2. A skill should have one primary job.
+3. Details can live in referenced files when they would bloat the core instructions.
+4. Gotchas should help the agent avoid real failure modes.
+5. External services and side effects must be explicit.
+6. Destructive, public, or irreversible actions require confirmation.

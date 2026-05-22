@@ -1,34 +1,34 @@
 # Agent Skill Category Taxonomy
 
-Based on Anthropic's internal taxonomy (published March 2026) and AgentSkillExchange community input.
+This taxonomy helps reviewers and catalog maintainers classify skills consistently. The canonical skill catalog lives in [`agentskillexchange/skills`](https://github.com/agentskillexchange/skills).
 
-## Official Categories
+## Core Categories
 
-| # | Category | Description | Examples |
-|---|----------|-------------|---------|
-| 1 | **Library & API Reference** | Skills that help agents use specific SDKs, APIs, or libraries correctly | Stripe API, GitHub REST API, OpenAI SDK |
-| 2 | **Product Verification** | Skills for validating that products/features work as expected | QA checklists, smoke tests, UAT guides |
-| 3 | **Data Fetching & Analysis** | Skills that retrieve and interpret data from external sources | Database queries, analytics dashboards, reports |
-| 4 | **Business Process Automation** | Skills that automate multi-step business workflows | Invoice processing, onboarding flows, approvals |
-| 5 | **Code Scaffolding** | Skills that generate boilerplate, project structure, or starter code | New project setup, component generators |
-| 6 | **Code Quality & Review** | Skills for reviewing, linting, and improving code quality | PR reviews, security audits, refactoring guides |
-| 7 | **CI/CD & Deployment** | Skills for build, test, and deployment pipelines | Deploy to staging, run CI, rollback |
-| 8 | **Runbooks & Diagnostics** | Skills for incident response and operational diagnostics | On-call runbooks, debugging guides, postmortems |
-| 9 | **Infrastructure Operations** | Skills for managing cloud infrastructure and DevOps | Terraform, Kubernetes, server management |
+| Category | Description | Examples |
+|----------|-------------|----------|
+| **Library & API Reference** | Skills that help agents use specific SDKs, APIs, or libraries correctly. | Stripe API, GitHub REST API, OpenAI SDK |
+| **Browser Automation** | Skills for navigating, testing, scraping, or operating websites through a browser. | Playwright flows, login checks, screenshots |
+| **Calendar, Email & Productivity** | Skills for inbox, calendar, contacts, docs, and personal productivity workflows. | Gmail triage, calendar planning |
+| **CI/CD & Deployment** | Skills for build, test, deployment, release, and rollback workflows. | GitHub Actions, staging deploys |
+| **Code Quality & Review** | Skills for reviewing, linting, refactoring, and improving code. | PR review, static checks |
+| **Content Writing & SEO** | Skills for drafting, editing, optimizing, and publishing content. | Blog drafts, metadata, content refreshes |
+| **Data Extraction & Transformation** | Skills that retrieve, parse, convert, or analyze structured and unstructured data. | PDF extraction, CSV cleanup |
+| **Developer Tools** | Skills for local tooling, CLIs, scaffolding, and agent development workflows. | Skill creation, command wrappers |
+| **Image & Creative Automation** | Skills for image generation, editing, design assets, and creative pipelines. | Image prompts, asset resizing |
+| **Integrations & Connectors** | Skills for third-party service workflows and app-specific operations. | Slack, Notion, Linear, CRM tools |
+| **Media Transcription** | Skills for audio/video transcription, subtitles, and media text extraction. | Whisper, meeting transcripts |
+| **Monitoring & Alerts** | Skills for logs, metrics, notifications, incident detection, and observability. | Alert triage, log summaries |
+| **Research & Scraping** | Skills for web research, source gathering, synthesis, and extraction. | Competitive research, source checks |
+| **Runbooks & Diagnostics** | Skills for incident response and operational debugging. | On-call runbooks, health checks |
+| **Security & Verification** | Skills for safety checks, security review, validation, and audit workflows. | Prompt-injection checks, verification gates |
+| **Templates & Workflows** | Reusable process templates and structured workflows. | Intake templates, review packets |
+| **WordPress & CMS** | Skills for WordPress, CMS operations, publishing, themes, and plugins. | WP-CLI, REST API, Gutenberg |
 
-## Community Categories
+## Proposing a Category Change
 
-| Category | Description |
-|----------|-------------|
-| **AI/ML Tools** | Skills for working with AI models, embeddings, vector DBs |
-| **Content & SEO** | Skills for writing, publishing, and optimizing content |
-| **Security** | Skills for security scanning, pen testing, compliance |
-| **Communication** | Skills for email, Slack, notifications, messaging |
-| **Research & Synthesis** | Skills for web research, summarization, fact-checking |
+Open an issue or PR with:
 
-## Proposing a New Category
-
-Open a GitHub Issue with:
-- Proposed category name and description
-- At least 3 example skills that would fit
-- Why existing categories don't cover it
+- Proposed category name and description.
+- At least three example skills that would fit.
+- Why existing categories do not cover it.
+- Any impact on current catalog organization.

@@ -1,27 +1,38 @@
-# Contributing to AgentSkillExchange Verification
+# Contributing to Agent Skill Exchange Verification & Security
 
-Thank you for helping improve agent skill quality and security!
+Thanks for helping improve the review process behind Agent Skill Exchange.
+
+## Scope
+
+This repo is for verification, security review, standards, and submission-process documentation. The primary skill catalog lives in [`agentskillexchange/skills`](https://github.com/agentskillexchange/skills).
+
+Open skill additions or skill content changes in the `skills` repo, not here.
 
 ## Ways to Contribute
 
-### 1. Improve the Checklist
-Found a verification criterion we missed? Open a PR editing `verification/checklist.md`.
+### Improve Review Criteria
 
-### 2. Add Security Checks
-Know a common security anti-pattern in agent skills? Add it to `security/common-issues.md` or improve `security/tools/scan.sh`.
+Open a PR against `verification/checklist.md` when a criterion is unclear, missing, or no longer matches how skills are reviewed.
 
-### 3. Review a Skill
-Want to review a skill for the marketplace? See `submission/review-request.md` for the process.
+### Add Security Guidance
 
-### 4. Propose a New Category
-See `standards/categories.md` for the proposal process.
+Add concrete risk patterns to `security/review-guide.md` or `security/threat-model.md`. Focus on issues reviewers can actually check, such as prompt injection, data leakage, unsafe tool use, and destructive actions.
+
+### Improve Scanner Checks
+
+Update `security/tools/scan.sh` when a lightweight automated check can catch an issue before human review. Include a short explanation of the risk the check addresses.
+
+### Refine Standards
+
+Use `standards/` for reusable definitions: skill structure, categories, and quality language. Keep marketplace catalog data out of this repo.
 
 ## PR Guidelines
 
-- Keep changes focused (one improvement per PR)
-- Explain the real-world risk or benefit your change addresses
-- Test any scan script changes against example skills
+- Keep changes focused.
+- Explain the practical risk or review benefit.
+- Test scanner changes against at least one sample `SKILL.md`.
+- Keep public trust language aligned to **Published** and **Security Reviewed**.
 
-## Code of Conduct
+## Conduct
 
-Be constructive. Security reviews can be sensitive — focus on the skill, not the author.
+Be direct and constructive. Security reviews can be sensitive; focus on the behavior and risk, not the author.

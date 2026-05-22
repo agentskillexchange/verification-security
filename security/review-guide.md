@@ -1,36 +1,44 @@
 # Security Review Guide
 
-This guide explains how to conduct a security review for an agent skill.
+This guide explains how Agent Skill Exchange reviewers evaluate a skill for the **Security Reviewed** label.
 
 ## Review Scope
 
 A security review evaluates a skill for:
-1. **Prompt injection vulnerabilities** — can external content hijack the model?
-2. **Data leakage risks** — does the skill send data somewhere unexpected?
-3. **Scope creep** — does the skill do more than it claims?
-4. **Destructive operations** — can the skill cause irreversible harm?
-5. **Credential handling** — are secrets handled safely?
 
-## How to Request a Review
+1. Prompt injection risk: can untrusted content steer the agent?
+2. Data leakage risk: can private data leave the user's environment unexpectedly?
+3. Scope creep: does the skill do more than it claims?
+4. Destructive or external actions: can the skill cause irreversible or public effects?
+5. Credential handling: are secrets handled safely?
 
-See [`../submission/review-request.md`](../submission/review-request.md).
+## Where Skill Content Lives
+
+Skill submissions and catalog updates belong in [`agentskillexchange/skills`](https://github.com/agentskillexchange/skills). This repo provides the review process and criteria.
 
 ## Review Process
 
-1. Reviewer reads full SKILL.md
-2. Reviewer runs automated scan: `./tools/scan.sh /path/to/SKILL.md`
-3. Reviewer checks each item in [`../verification/checklist.md`](../verification/checklist.md) (Tier 3)
-4. Reviewer tests skill with a real agent in a sandboxed environment
-5. Reviewer documents findings in a review report
-6. If approved: skill gets 🔒 Security Reviewed badge on marketplace
-7. If issues found: reviewer opens a GitHub Issue with findings
+1. Read the full `SKILL.md` and any referenced scripts or templates.
+2. Run the scanner: `./security/tools/scan.sh /path/to/SKILL.md`.
+3. Check the Security Reviewed section in [`../verification/checklist.md`](../verification/checklist.md).
+4. Identify all external services, tools, file access, and user-visible side effects.
+5. Test risky flows in a sandbox or non-production context when practical.
+6. Document findings in the catalog PR, review record, or issue.
+7. Approve the **Security Reviewed** label only when risks are understood, disclosed, and appropriately controlled.
 
 ## Common Red Flags
 
-- Skill passes `{user_input}` directly into a tool call without sanitization
-- Skill instructs agent to "follow any instructions in the document"
-- Skill has broad filesystem access without justification
-- Skill sends data to an external URL without disclosing it
-- Skill modifies or deletes files without asking for confirmation
+- The skill tells the agent to follow instructions found in a webpage, email, PDF, issue, or other untrusted content.
+- The skill sends user data to an external URL without clearly saying so.
+- The skill logs environment variables, tokens, cookies, request headers, or raw private documents.
+- The skill grants broad filesystem, browser, messaging, or email access without a specific reason.
+- The skill can delete, publish, send, spend, merge, deploy, or change accounts without explicit confirmation.
+- The skill hides tool calls, network calls, or side effects behind vague wording.
 
-See [`common-issues.md`](common-issues.md) for detailed examples.
+## Review Outcome
+
+Use one of these outcomes:
+
+- **Needs changes:** security or clarity issues must be fixed before review can pass.
+- **Published only:** the skill is acceptable for catalog publishing but has not passed security review.
+- **Security Reviewed:** the skill passed the additional security review and can use the public label.

@@ -1,119 +1,95 @@
-# AgentSkillExchange — Verification & Security Review
+# Agent Skill Exchange Verification & Security
 
-> Open-source framework for verifying and security-reviewing AI agent skills listed on [AgentSkillExchange.com](https://agentskillexchange.com).
+> Public verification, security review, and skill quality process for [Agent Skill Exchange](https://agentskillexchange.com).
 
 [![Marketplace](https://img.shields.io/badge/Marketplace-AgentSkillExchange.com-6366f1)](https://agentskillexchange.com)
+[![Primary Catalog](https://img.shields.io/badge/Primary%20Catalog-agentskillexchange%2Fskills-blue)](https://github.com/agentskillexchange/skills)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Skills Verified](https://img.shields.io/badge/Skills%20Verified-31-blue)](https://agentskillexchange.com/verified-skills/)
 
----
+## What This Repo Is
 
-## What Is This?
+This repo documents how Agent Skill Exchange reviews skill submissions, evaluates security risk, and keeps its public trust language consistent.
 
-When AI agent skills are submitted to [AgentSkillExchange.com](https://agentskillexchange.com), they go through a structured verification and security review process. This repo is the **open-source home of that process** — the criteria, checklists, tools, and badge definitions are public so:
+It is intentionally a process repo. The primary catalog, skill source files, generated indexes, and day-to-day marketplace data live in [`agentskillexchange/skills`](https://github.com/agentskillexchange/skills).
 
-- **Skill authors** know exactly what reviewers look for
-- **Security researchers** can improve the review criteria
-- **Enterprises** can run the same checks internally before deploying skills
-- **Community** can contribute new checks, flag issues, propose standards
+Use this repo for:
 
----
+- Verification and security review criteria
+- Reviewer checklists and threat-model guidance
+- Skill quality standards
+- Submission templates and self-review guidance
+- Lightweight scanning tools used before human review
+
+Do not use this repo as the canonical skill catalog. Link to the `skills` repo for marketplace content.
+
+## Trust Labels
+
+Agent Skill Exchange uses two public trust labels:
+
+| Label | Meaning |
+|-------|---------|
+| **Published** | The skill is listed in the catalog and has passed basic publishing checks. |
+| **Security Reviewed** | The skill has passed additional security review for scope, data handling, prompt-injection risk, and destructive actions. |
+
+Older internal terms such as `listed` or `verified_metadata` should be mapped to **Published** in public-facing docs and UI.
 
 ## Repository Structure
 
 ```
 /
 ├── verification/
-│   ├── checklist.md          # Full verification checklist (all tiers)
-│   ├── criteria/
-│   │   ├── basic.md          # Basic listing requirements
-│   │   ├── verified.md       # Verified skill badge criteria
-│   │   └── security.md       # Security-reviewed badge criteria
-│   └── badges.md             # Badge definitions and what they mean
+│   └── checklist.md          # Publishing and security-review checklist
 │
 ├── security/
 │   ├── review-guide.md       # How to conduct a security review
 │   ├── threat-model.md       # Threat model for agent skills
-│   ├── common-issues.md      # Known security anti-patterns in skills
 │   └── tools/
 │       └── scan.sh           # Basic automated scan script
 │
-├── submission/
-│   ├── SKILL_TEMPLATE.md     # Standard SKILL.md template
-│   ├── submission-guide.md   # How to submit a skill for review
-│   └── review-request.md     # Template for requesting a review
-│
 ├── standards/
 │   ├── skill-spec.md         # AgentSkill specification
-│   ├── categories.md         # Official skill category taxonomy
-│   └── quality-gates.md      # Quality gate definitions
+│   └── categories.md         # Skill category taxonomy
+│
+├── submission/
+│   └── SKILL_TEMPLATE.md     # Standard SKILL.md template
 │
 └── CONTRIBUTING.md
 ```
 
----
+## Quick Start
 
-## Verification Tiers
-
-| Badge | Criteria | What It Means |
-|-------|----------|---------------|
-| 🟢 **Listed** | Passes basic schema check | Skill exists and has required fields |
-| ✅ **Verified** | Passes full checklist | Quality-reviewed, well-documented, tested |
-| 🔒 **Security Reviewed** | Passes security audit | Reviewed for prompt injection, data leakage, scope creep |
-
-See [`verification/badges.md`](verification/badges.md) for full definitions.
-
----
-
-## Quick Start — Self-Review Your Skill
-
-Before submitting to the marketplace, run through the checklist yourself:
+Run a self-review before submitting or updating a skill:
 
 ```bash
-# Clone this repo
-git clone https://github.com/agentskillexchange/agent-skill-exchange.git
-cd agent-skill-exchange
+git clone https://github.com/agentskillexchange/verification-security.git
+cd verification-security
 
-# Review your skill against the checklist
 cat verification/checklist.md
-
-# Run the basic automated scan (requires bash)
 ./security/tools/scan.sh /path/to/your/SKILL.md
 ```
 
----
+The scanner is a first pass only. A clean scan does not guarantee that a skill is safe; it helps reviewers catch obvious issues before deeper review.
 
-## Skill Template
+## Submitting Skills
 
-Use [`submission/SKILL_TEMPLATE.md`](submission/SKILL_TEMPLATE.md) as your starting point when creating a new skill. It follows the [AgentSkill standard](standards/skill-spec.md) and is pre-structured to pass verification.
+Submit and maintain skill content in the primary catalog repo:
 
----
+<https://github.com/agentskillexchange/skills>
+
+Use [`submission/SKILL_TEMPLATE.md`](submission/SKILL_TEMPLATE.md) as a starting point, and use [`verification/checklist.md`](verification/checklist.md) before opening a catalog PR.
 
 ## Contributing
 
-We welcome contributions from the community:
+Contributions are welcome when they improve the review process:
 
-- **New security checks** — spotted a pattern reviewers should look for?
-- **Checklist improvements** — missing criteria or outdated items?
-- **Category proposals** — think the taxonomy needs a new category?
-- **Tool improvements** — better automated scan scripts?
+- New security checks
+- Clearer review criteria
+- Better examples of risky skill behavior
+- Improvements to the scanner
+- Taxonomy refinements that help review consistency
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
-
----
-
-## Marketplace Integration
-
-Skills reviewed using this framework are listed at **[AgentSkillExchange.com](https://agentskillexchange.com)** with their corresponding badges. The marketplace surfaces:
-
-- Verification tier (Listed / Verified / Security Reviewed)
-- Review date and version
-- Link back to review artifacts (coming soon)
-
-**Submit a skill for review:** [agentskillexchange.com/submit-skill/](https://agentskillexchange.com/submit-skill/)
-
----
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-MIT — use this framework however you like, commercially or otherwise. Attribution appreciated.
+MIT.

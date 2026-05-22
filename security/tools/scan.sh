@@ -39,7 +39,7 @@ if grep -qiE "(api_key|apikey|secret|password|token)\s*=\s*['\"][^'\"]{6,}" "$SK
 fi
 
 # ---- Check 4: Suspicious outbound URLs (non-documentation) ----
-SUSPICIOUS=$(grep -oiE 'https?://[^ )"'"'"']+' "$SKILL_FILE" | grep -viE '(github\.com|docs\.|readme|example\.com|localhost|your-|<|{)' | head -10 || true)
+SUSPICIOUS=$(grep -oiE 'https?://[^[:space:])"'"'"']+' "$SKILL_FILE" | grep -viE '(github\.com|docs\.|readme|example\.com|localhost|your-|<|\{)' | head -10 || true)
 if [[ -n "$SUSPICIOUS" ]]; then
   echo "ℹ️  INFO: External URLs found (verify these are intentional):"
   echo "$SUSPICIOUS" | sed 's/^/   /'
