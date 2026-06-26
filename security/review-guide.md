@@ -2,6 +2,8 @@
 
 This guide explains how Agent Skill Exchange reviewers evaluate a skill for the **Security Reviewed** label.
 
+For first-pass triage, start with the 10-minute [Reviewer Quickstart](reviewer-quickstart.md).
+
 ## Review Scope
 
 A security review evaluates a skill for:
