@@ -27,6 +27,8 @@ Treat scanner output as review input:
 
 ## 3. Check the Highest-Risk Questions
 
+If a case is hard to classify, compare it with the safe and risky [`SKILL.md` review patterns](../examples/review-patterns.md).
+
 Ask these before spending time on polish:
 
 - Does the skill tell the agent to follow instructions from webpages, emails, PDFs, issues, logs, or other untrusted content?

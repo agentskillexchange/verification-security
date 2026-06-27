@@ -30,6 +30,8 @@ Skill submissions and catalog updates belong in [`agentskillexchange/skills`](ht
 
 ## Common Red Flags
 
+Compare borderline cases against the safe and risky [`SKILL.md` review patterns](../examples/review-patterns.md).
+
 - The skill tells the agent to follow instructions found in a webpage, email, PDF, issue, or other untrusted content.
 - The skill sends user data to an external URL without clearly saying so.
 - The skill logs environment variables, tokens, cookies, request headers, or raw private documents.

@@ -47,6 +47,9 @@ Older internal terms such as `listed` or `verified_metadata` should be mapped to
 │   └── tools/
 │       └── scan.sh           # Basic automated scan script
 │
+├── examples/
+│   └── review-patterns.md    # Safe and risky SKILL.md review patterns
+│
 ├── standards/
 │   ├── skill-spec.md         # AgentSkill specification
 │   └── categories.md         # Skill category taxonomy
@@ -71,7 +74,7 @@ cat verification/checklist.md
 
 The scanner is a first pass only. A clean scan does not guarantee that a skill is safe; it helps reviewers catch obvious issues before deeper review.
 
-Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), then use the full [`Security Review Guide`](security/review-guide.md) and [`Verification Checklist`](verification/checklist.md) for final decisions.
+Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), compare against the [`Review Patterns`](examples/review-patterns.md), then use the full [`Security Review Guide`](security/review-guide.md) and [`Verification Checklist`](verification/checklist.md) for final decisions.
 
 ## Submitting Skills
 
