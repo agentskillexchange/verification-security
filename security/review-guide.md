@@ -3,6 +3,7 @@
 This guide explains how Agent Skill Exchange reviewers evaluate a skill for the **Security Reviewed** label.
 
 For first-pass triage, start with the 10-minute [Reviewer Quickstart](reviewer-quickstart.md).
+For label assignment, recheck, and downgrade rules, use the [Trust Label Lifecycle](trust-label-lifecycle.md).
 
 ## Review Scope
 
@@ -46,3 +47,5 @@ Use one of these outcomes:
 - **Needs changes:** security or clarity issues must be fixed before review can pass.
 - **Published only:** the skill is acceptable for catalog publishing but has not passed security review.
 - **Security Reviewed:** the skill passed the additional security review and can use the public label.
+
+Record enough evidence for another reviewer to reproduce the decision, then apply the lifecycle rules for label changes or downgrades.

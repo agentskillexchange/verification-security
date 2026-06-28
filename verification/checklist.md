@@ -2,7 +2,7 @@
 
 Use this checklist before submitting a skill to Agent Skill Exchange or requesting security review.
 
-Public trust labels are limited to **Published** and **Security Reviewed**. This checklist separates basic publishing readiness from the additional security review required for the Security Reviewed label.
+Public trust labels are limited to **Published** and **Security Reviewed**. This checklist separates basic publishing readiness from the additional security review required for the Security Reviewed label. Use the [`../security/trust-label-lifecycle.md`](../security/trust-label-lifecycle.md) when assigning, keeping, or downgrading a label.
 
 ## Published Readiness
 

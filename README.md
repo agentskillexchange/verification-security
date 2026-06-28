@@ -43,6 +43,7 @@ Older internal terms such as `listed` or `verified_metadata` should be mapped to
 ├── security/
 │   ├── review-guide.md       # How to conduct a security review
 │   ├── reviewer-quickstart.md # 10-minute reviewer triage guide
+│   ├── trust-label-lifecycle.md # Trust label assignment and downgrade rules
 │   ├── threat-model.md       # Threat model for agent skills
 │   └── tools/
 │       └── scan.sh           # Basic automated scan script
@@ -74,7 +75,7 @@ cat verification/checklist.md
 
 The scanner is a first pass only. A clean scan does not guarantee that a skill is safe; it helps reviewers catch obvious issues before deeper review.
 
-Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), compare against the [`Review Patterns`](examples/review-patterns.md), then use the full [`Security Review Guide`](security/review-guide.md) and [`Verification Checklist`](verification/checklist.md) for final decisions.
+Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), compare against the [`Review Patterns`](examples/review-patterns.md), then use the full [`Security Review Guide`](security/review-guide.md), [`Verification Checklist`](verification/checklist.md), and [`Trust Label Lifecycle`](security/trust-label-lifecycle.md) for final decisions.
 
 ## Submitting Skills
 
