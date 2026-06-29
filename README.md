@@ -70,10 +70,11 @@ git clone https://github.com/agentskillexchange/verification-security.git
 cd verification-security
 
 cat verification/checklist.md
+./security/tools/scan.sh --help
 ./security/tools/scan.sh /path/to/your/SKILL.md
 ```
 
-The scanner is a first pass only. A clean scan does not guarantee that a skill is safe; it helps reviewers catch obvious issues before deeper review.
+The scanner is a first pass only. A clean scan does not guarantee that a skill is safe; it helps reviewers catch obvious issues before deeper review. Exit code `0` means no issues were found, `1` means warnings or failures need review, and `2` means the command was missing or could not read the target file.
 
 Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), compare against the [`Review Patterns`](examples/review-patterns.md), then use the full [`Security Review Guide`](security/review-guide.md), [`Verification Checklist`](verification/checklist.md), and [`Trust Label Lifecycle`](security/trust-label-lifecycle.md) for final decisions.
 

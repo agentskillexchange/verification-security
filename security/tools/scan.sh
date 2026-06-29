@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # scan.sh — Basic automated security scan for SKILL.md files
-# Usage: ./scan.sh /path/to/SKILL.md
-# 
+#
 # Returns exit code 0 if no issues found, 1 if issues detected.
 
 set -euo pipefail
@@ -9,8 +8,44 @@ set -euo pipefail
 SKILL_FILE="${1:-}"
 ISSUES=0
 
-if [[ -z "$SKILL_FILE" ]] || [[ ! -f "$SKILL_FILE" ]]; then
-  echo "Usage: $0 /path/to/SKILL.md"
+usage() {
+  cat <<'EOF'
+Usage: security/tools/scan.sh /path/to/SKILL.md
+
+Runs lightweight pre-review checks for common Agent Skill risks:
+  - missing Gotchas / Limitations guidance
+  - missing NOT for / anti-trigger guidance
+  - possible hardcoded credentials
+  - unreviewed external URLs
+  - prompt-injection language
+  - environment value logging
+  - destructive actions without confirmation
+
+Exit codes:
+  0  no issues found
+  1  warnings or failures found; review the output
+  2  usage error, missing file, or unreadable file
+
+Examples:
+  security/tools/scan.sh submission/SKILL_TEMPLATE.md
+  security/tools/scan.sh ../skills/some-skill/SKILL.md
+EOF
+}
+
+if [[ "$SKILL_FILE" == "-h" || "$SKILL_FILE" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+if [[ -z "$SKILL_FILE" ]]; then
+  usage
+  exit 2
+fi
+
+if [[ ! -f "$SKILL_FILE" ]]; then
+  echo "ERROR: SKILL.md file not found: $SKILL_FILE" >&2
+  echo >&2
+  usage >&2
   exit 2
 fi
 
