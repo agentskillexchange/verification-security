@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Regression test for scanner warnings using intentionally risky fixture text.
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+SCANNER="$ROOT_DIR/security/tools/scan.sh"
+FIXTURE="$ROOT_DIR/examples/scanner-fixtures/risky-skill.md"
+
+OUTPUT="$("$SCANNER" "$FIXTURE" 2>&1)" && STATUS=0 || STATUS=$?
+
+if [[ "$STATUS" -ne 1 ]]; then
+  echo "Expected scanner to exit 1 for risky fixture, got $STATUS"
+  echo "$OUTPUT"
+  exit 1
+fi
+
+for EXPECTED in \
+  "No Gotchas/Limitations section found" \
+  "No 'NOT for' / anti-trigger section found" \
+  "Possible hardcoded credential detected" \
+  "Possible prompt injection pattern found in skill text" \
+  "Skill may log environment variables" \
+  "Destructive operation found without explicit confirmation requirement"
+do
+  if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
+    echo "Missing expected scanner output: $EXPECTED"
+    echo "$OUTPUT"
+    exit 1
+  fi
+done
+
+echo "scanner risky fixture test passed"
