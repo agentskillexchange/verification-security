@@ -39,6 +39,22 @@ Before using this skill, ensure:
 - Destructive actions: [describe confirmation requirements or "none"]
 - Required user confirmation: [when the agent must ask first]
 
+## Submission Self-Review
+
+Before submitting this skill for Agent Skill Exchange review, complete the checks below.
+
+- [ ] The trigger and anti-trigger sections clearly explain when the skill should and should not run.
+- [ ] Every referenced script, template, asset, API, browser action, file action, and external service is listed above or in References.
+- [ ] Required secrets, tokens, cookies, or private URLs are named as placeholders only; no real values are included.
+- [ ] Data sent to external services is minimized and described in plain language.
+- [ ] Destructive, irreversible, or production-affecting actions require explicit user confirmation.
+- [ ] Prompt-injection risk from web pages, documents, user files, or third-party content is handled with clear boundaries.
+- [ ] Long provider docs, schemas, generated outputs, or examples are kept in separate files instead of crowding the main instructions.
+- [ ] `security/tools/scan.sh` was run against this `SKILL.md`, and any warnings are either fixed or documented for reviewer follow-up.
+
+Requested review outcome: [Published only / Security Reviewed / unsure]
+Evidence for Security Reviewed, if requested: [scanner result, manual review notes, fixture output, or other evidence]
+
 ## Usage Examples
 
 ```
