@@ -78,6 +78,15 @@ The scanner is a first pass only. A clean scan does not guarantee that a skill i
 
 Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer-quickstart.md), compare against the [`Review Patterns`](examples/review-patterns.md), then use the full [`Security Review Guide`](security/review-guide.md), [`Verification Checklist`](verification/checklist.md), and [`Trust Label Lifecycle`](security/trust-label-lifecycle.md) for final decisions.
 
+## Find the Right Review Path
+
+| If you are... | Start here | Then use |
+|---------------|------------|----------|
+| Submitting or updating a skill | [`submission/SKILL_TEMPLATE.md`](submission/SKILL_TEMPLATE.md) | [`verification/checklist.md`](verification/checklist.md) and `./security/tools/scan.sh /path/to/SKILL.md` |
+| Doing a fast reviewer triage | [`security/reviewer-quickstart.md`](security/reviewer-quickstart.md) | [`examples/review-patterns.md`](examples/review-patterns.md) for safe and risky comparisons |
+| Making a Security Reviewed decision | [`security/review-guide.md`](security/review-guide.md) | [`security/trust-label-lifecycle.md`](security/trust-label-lifecycle.md) for label evidence and downgrade rules |
+| Checking scanner behavior | `./security/tools/scan.sh --help` | [`security/tools/test_scan.sh`](security/tools/test_scan.sh) and [`examples/scanner-fixtures/risky-skill.md`](examples/scanner-fixtures/risky-skill.md) for expected risky-output coverage |
+
 ## Submitting Skills
 
 Submit and maintain skill content in the primary catalog repo:
