@@ -27,7 +27,7 @@ Treat scanner output as review input:
 
 ## 3. Check the Highest-Risk Questions
 
-If a case is hard to classify, compare it with the safe and risky [`SKILL.md` review patterns](../examples/review-patterns.md).
+If a case is hard to classify, compare it with the safe and risky [`SKILL.md` review patterns](../examples/review-patterns.md) and the compact [`Risky Pattern Reference`](../examples/risky-patterns.md).
 
 Ask these before spending time on polish:
 

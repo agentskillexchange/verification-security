@@ -49,7 +49,8 @@ Older internal terms such as `listed` or `verified_metadata` should be mapped to
 │       └── scan.sh           # Basic automated scan script
 │
 ├── examples/
-│   └── review-patterns.md    # Safe and risky SKILL.md review patterns
+│   ├── review-patterns.md    # Safe and risky SKILL.md review patterns
+│   └── risky-patterns.md     # Risky pattern decisions and safeguards
 │
 ├── standards/
 │   ├── skill-spec.md         # AgentSkill specification
@@ -83,7 +84,7 @@ Reviewers can start with the 10-minute [`Reviewer Quickstart`](security/reviewer
 | If you are... | Start here | Then use |
 |---------------|------------|----------|
 | Submitting or updating a skill | [`submission/SKILL_TEMPLATE.md`](submission/SKILL_TEMPLATE.md) | [`verification/checklist.md`](verification/checklist.md) and `./security/tools/scan.sh /path/to/SKILL.md` |
-| Doing a fast reviewer triage | [`security/reviewer-quickstart.md`](security/reviewer-quickstart.md) | [`examples/review-patterns.md`](examples/review-patterns.md) for safe and risky comparisons |
+| Doing a fast reviewer triage | [`security/reviewer-quickstart.md`](security/reviewer-quickstart.md) | [`examples/review-patterns.md`](examples/review-patterns.md) for safe/risky snippets and [`examples/risky-patterns.md`](examples/risky-patterns.md) for decision guidance |
 | Making a Security Reviewed decision | [`security/review-guide.md`](security/review-guide.md) | [`security/trust-label-lifecycle.md`](security/trust-label-lifecycle.md) for label evidence and downgrade rules |
 | Checking scanner behavior | `./security/tools/scan.sh --help` | [`security/tools/test_scan.sh`](security/tools/test_scan.sh) and [`examples/scanner-fixtures/risky-skill.md`](examples/scanner-fixtures/risky-skill.md) for expected risky-output coverage |
 
