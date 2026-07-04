@@ -12,6 +12,8 @@ This repo documents how Agent Skill Exchange reviews skill submissions, evaluate
 
 It is intentionally a process repo. The primary catalog, skill source files, generated indexes, and day-to-day marketplace data live in [`agentskillexchange/skills`](https://github.com/agentskillexchange/skills).
 
+Star this repo if you want a compact reference for reviewing agent skills, checking risky `SKILL.md` patterns, or adapting a lightweight security-review process for your own agent marketplace.
+
 Use this repo for:
 
 - Verification and security review criteria
