@@ -4,6 +4,18 @@ Use this checklist before submitting a skill to Agent Skill Exchange or requesti
 
 Public trust labels are limited to **Published** and **Security Reviewed**. This checklist separates basic publishing readiness from the additional security review required for the Security Reviewed label. Use the [`../security/trust-label-lifecycle.md`](../security/trust-label-lifecycle.md) when assigning, keeping, or downgrading a label.
 
+## When to Re-Review
+
+Use this checklist again before keeping an existing label when a skill changes. Re-run the scanner and refresh review evidence when a diff:
+
+- Adds or changes tool, API, browser, file, email, messaging, or network access.
+- Changes external services, authentication, stored data, or data sent outside the user's environment.
+- Weakens prompt-injection handling, source/instruction separation, or unsafe-content warnings.
+- Adds destructive, public, paid, deployment, merge, publish, send, delete, or account-changing actions.
+- Produces new scanner warnings or removes prior Security Reviewed evidence.
+
+If the new evidence is incomplete, keep or downgrade to **Published** until the Security Reviewed checks below pass again.
+
 ## Published Readiness
 
 ### Identity and Description
