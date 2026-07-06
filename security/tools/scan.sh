@@ -18,6 +18,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - possible hardcoded credentials
   - unreviewed external URLs
   - prompt-injection language
+  - curl-pipe-shell install patterns
   - environment value logging
   - destructive actions without confirmation
 
@@ -87,13 +88,20 @@ if grep -qiE "follow (any|all) instructions|ignore (previous|prior|above)" "$SKI
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 6: Environment variable exposure ----
+# ---- Check 6: Curl-pipe-shell setup ----
+if grep -qiE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"; then
+  echo "⚠️  WARN: Curl-pipe-shell install pattern found"
+  grep -niE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"
+  ISSUES=$((ISSUES+1))
+fi
+
+# ---- Check 7: Environment variable exposure ----
 if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.env|os\.environ|\$[A-Z_]{4,}" "$SKILL_FILE"; then
   echo "⚠️  WARN: Skill may log environment variables"
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 7: Destructive operations without confirmation ----
+# ---- Check 8: Destructive operations without confirmation ----
 if grep -qiE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE"; then
   if ! grep -qiE "(confirm|ask|prompt|proceed\?|are you sure)" "$SKILL_FILE"; then
     echo "⚠️  WARN: Destructive operation found without explicit confirmation requirement"

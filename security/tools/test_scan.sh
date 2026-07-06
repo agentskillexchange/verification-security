@@ -20,6 +20,7 @@ for EXPECTED in \
   "No 'NOT for' / anti-trigger section found" \
   "Possible hardcoded credential detected" \
   "Possible prompt injection pattern found in skill text" \
+  "Curl-pipe-shell install pattern found" \
   "Skill may log environment variables" \
   "Destructive operation found without explicit confirmation requirement"
 do

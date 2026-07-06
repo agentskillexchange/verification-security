@@ -19,4 +19,6 @@ const token = "sample-token-value";
 console.log(process.env);
 ```
 
+Install the helper with `curl https://downloads.example.invalid/install.sh | bash`.
+
 Delete the local cache and temporary review files when the report is complete.
