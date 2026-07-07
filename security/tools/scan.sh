@@ -91,6 +91,7 @@ fi
 # ---- Check 6: Curl-pipe-shell setup ----
 if grep -qiE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"; then
   echo "⚠️  WARN: Curl-pipe-shell install pattern found"
+  echo "   Recommended: Replace with pinned package installs, checksums, or a manual review step"
   grep -niE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"
   ISSUES=$((ISSUES+1))
 fi

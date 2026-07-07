@@ -21,6 +21,7 @@ for EXPECTED in \
   "Possible hardcoded credential detected" \
   "Possible prompt injection pattern found in skill text" \
   "Curl-pipe-shell install pattern found" \
+  "Replace with pinned package installs, checksums, or a manual review step" \
   "Skill may log environment variables" \
   "Destructive operation found without explicit confirmation requirement"
 do
