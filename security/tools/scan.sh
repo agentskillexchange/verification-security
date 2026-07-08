@@ -99,6 +99,7 @@ fi
 # ---- Check 7: Environment variable exposure ----
 if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.env|os\.environ|\$[A-Z_]{4,}" "$SKILL_FILE"; then
   echo "⚠️  WARN: Skill may log environment variables"
+  echo "   Recommended: Log only explicit non-secret keys or redact values before printing"
   ISSUES=$((ISSUES+1))
 fi
 

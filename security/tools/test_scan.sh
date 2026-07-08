@@ -23,6 +23,7 @@ for EXPECTED in \
   "Curl-pipe-shell install pattern found" \
   "Replace with pinned package installs, checksums, or a manual review step" \
   "Skill may log environment variables" \
+  "Log only explicit non-secret keys or redact values before printing" \
   "Destructive operation found without explicit confirmation requirement"
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
