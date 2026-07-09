@@ -70,6 +70,7 @@ fi
 # ---- Check 3: Hardcoded credentials ----
 if grep -qiE "(api_key|apikey|secret|password|token)\s*=\s*['\"][^'\"]{6,}" "$SKILL_FILE"; then
   echo "🚨 FAIL: Possible hardcoded credential detected"
+  echo "   Recommended: Use environment variables, secret stores, or placeholders instead of real values"
   grep -niE "(api_key|apikey|secret|password|token)\s*=\s*['\"][^'\"]{6,}" "$SKILL_FILE" | head -5
   ISSUES=$((ISSUES+1))
 fi

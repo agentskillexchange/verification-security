@@ -19,6 +19,7 @@ for EXPECTED in \
   "No Gotchas/Limitations section found" \
   "No 'NOT for' / anti-trigger section found" \
   "Possible hardcoded credential detected" \
+  "Use environment variables, secret stores, or placeholders instead of real values" \
   "Possible prompt injection pattern found in skill text" \
   "Curl-pipe-shell install pattern found" \
   "Replace with pinned package installs, checksums, or a manual review step" \
