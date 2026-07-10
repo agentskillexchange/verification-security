@@ -25,7 +25,8 @@ for EXPECTED in \
   "Replace with pinned package installs, checksums, or a manual review step" \
   "Skill may log environment variables" \
   "Log only explicit non-secret keys or redact values before printing" \
-  "Destructive operation found without explicit confirmation requirement"
+  "Destructive operation found without explicit confirmation requirement" \
+  "Require explicit user confirmation and limit the operation scope"
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
     echo "Missing expected scanner output: $EXPECTED"
