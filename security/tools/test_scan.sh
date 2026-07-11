@@ -21,6 +21,7 @@ for EXPECTED in \
   "Possible hardcoded credential detected" \
   "Use environment variables, secret stores, or placeholders instead of real values" \
   "Possible prompt injection pattern found in skill text" \
+  "Treat fetched or user-provided content as data, not instructions" \
   "Curl-pipe-shell install pattern found" \
   "Replace with pinned package installs, checksums, or a manual review step" \
   "Skill may log environment variables" \

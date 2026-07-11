@@ -85,6 +85,7 @@ fi
 # ---- Check 5: Prompt injection patterns ----
 if grep -qiE "follow (any|all) instructions|ignore (previous|prior|above)" "$SKILL_FILE"; then
   echo "🚨 FAIL: Possible prompt injection pattern found in skill text"
+  echo "   Recommended: Treat fetched or user-provided content as data, not instructions"
   grep -niE "follow (any|all) instructions|ignore (previous|prior|above)" "$SKILL_FILE"
   ISSUES=$((ISSUES+1))
 fi
