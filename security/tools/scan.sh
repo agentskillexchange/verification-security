@@ -57,6 +57,7 @@ echo "=========================================="
 if ! grep -qi "gotcha\|limitation\|known issue\|caveat" "$SKILL_FILE"; then
   echo "⚠️  WARN: No Gotchas/Limitations section found"
   echo "   Recommended: Add a '## Gotchas & Known Limitations' section"
+  echo "   Include: failure modes, unsafe assumptions, rate limits, and review follow-ups"
   ISSUES=$((ISSUES+1))
 fi
 

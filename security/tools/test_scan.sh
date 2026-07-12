@@ -17,6 +17,7 @@ fi
 
 for EXPECTED in \
   "No Gotchas/Limitations section found" \
+  "Include: failure modes, unsafe assumptions, rate limits, and review follow-ups" \
   "No 'NOT for' / anti-trigger section found" \
   "Possible hardcoded credential detected" \
   "Use environment variables, secret stores, or placeholders instead of real values" \
