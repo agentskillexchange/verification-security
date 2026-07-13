@@ -65,6 +65,7 @@ fi
 if ! grep -qi "not for\|don't use\|avoid\|when not to" "$SKILL_FILE"; then
   echo "⚠️  WARN: No 'NOT for' / anti-trigger section found"
   echo "   Recommended: Add a '## NOT for' section"
+  echo "   Include: misuse boundaries, anti-triggers, and evidence that reviewers can check"
   ISSUES=$((ISSUES+1))
 fi
 

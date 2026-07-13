@@ -19,6 +19,7 @@ for EXPECTED in \
   "No Gotchas/Limitations section found" \
   "Include: failure modes, unsafe assumptions, rate limits, and review follow-ups" \
   "No 'NOT for' / anti-trigger section found" \
+  "Include: misuse boundaries, anti-triggers, and evidence that reviewers can check" \
   "Possible hardcoded credential detected" \
   "Use environment variables, secret stores, or placeholders instead of real values" \
   "Possible prompt injection pattern found in skill text" \
