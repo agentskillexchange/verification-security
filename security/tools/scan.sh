@@ -104,6 +104,7 @@ fi
 if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.env|os\.environ|\$[A-Z_]{4,}" "$SKILL_FILE"; then
   echo "⚠️  WARN: Skill may log environment variables"
   echo "   Recommended: Log only explicit non-secret keys or redact values before printing"
+  grep -niE "(print|echo|log|console\.log).*(process\.env|os\.environ|\$[A-Z_]{4,})|(process\.env|os\.environ|\$[A-Z_]{4,}).*(print|echo|log|console\.log)" "$SKILL_FILE" | head -5 || true
   ISSUES=$((ISSUES+1))
 fi
 
