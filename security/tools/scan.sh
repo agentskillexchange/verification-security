@@ -113,6 +113,7 @@ if grep -qiE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE"; the
   if ! grep -qiE "(confirm|ask|prompt|proceed\?|are you sure)" "$SKILL_FILE"; then
     echo "⚠️  WARN: Destructive operation found without explicit confirmation requirement"
     echo "   Recommended: Require explicit user confirmation and limit the operation scope"
+    grep -niE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE" | head -5
     ISSUES=$((ISSUES+1))
   fi
 fi

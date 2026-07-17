@@ -30,7 +30,8 @@ for EXPECTED in \
   "Log only explicit non-secret keys or redact values before printing" \
   "19:console.log(process.env);" \
   "Destructive operation found without explicit confirmation requirement" \
-  "Require explicit user confirmation and limit the operation scope"
+  "Require explicit user confirmation and limit the operation scope" \
+  "24:Delete the local cache and temporary review files when the report is complete."
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
     echo "Missing expected scanner output: $EXPECTED"
