@@ -124,5 +124,6 @@ if [[ $ISSUES -eq 0 ]]; then
   exit 0
 else
   echo "❌ Scan complete — $ISSUES issue(s) found"
+  echo "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional."
   exit 1
 fi

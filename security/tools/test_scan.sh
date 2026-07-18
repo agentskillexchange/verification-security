@@ -31,7 +31,8 @@ for EXPECTED in \
   "19:console.log(process.env);" \
   "Destructive operation found without explicit confirmation requirement" \
   "Require explicit user confirmation and limit the operation scope" \
-  "24:Delete the local cache and temporary review files when the report is complete."
+  "24:Delete the local cache and temporary review files when the report is complete." \
+  "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional."
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
     echo "Missing expected scanner output: $EXPECTED"
