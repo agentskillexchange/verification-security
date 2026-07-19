@@ -22,4 +22,17 @@ This is not a substitute for the full [Security Review Guide](../security/review
 - Borderline cases should stay **Published only** until safeguards and evidence are clear.
 - **Security Reviewed** requires the risk to be disclosed, scoped, controlled, and reproducible from the review evidence.
 
+## Reading Scanner Output
+
+Use the scanner output as a triage queue, not a final verdict.
+
+| Output type | Reviewer action |
+|-------------|-----------------|
+| `FAIL` | Stop the review path until the author removes the risky instruction or adds a concrete safeguard reviewers can reproduce. |
+| `WARN` | Request a bounded change when the missing section or risky behavior affects when the skill should run, what it can change, or what it can expose. |
+| `INFO` | Verify the URL, dependency, or external touchpoint is intentional, documented, and appropriate for the skill's scope. |
+| Line evidence | Check the cited line first, then scan the surrounding section for whether the skill also states a safe alternative. |
+
+When multiple findings appear, resolve `FAIL` items before spending review time on section polish. A skill should not advance to **Security Reviewed** while hardcoded credentials, prompt-following instructions from untrusted content, or unconfirmed destructive actions remain unresolved.
+
 Use the companion [Review Patterns](review-patterns.md) for small safe/risky snippets and the [risky scanner fixture](scanner-fixtures/risky-skill.md) to see the scanner's expected warning coverage.
