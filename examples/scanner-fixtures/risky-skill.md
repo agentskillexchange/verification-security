@@ -3,6 +3,12 @@
 Use this file only as an intentionally risky scanner fixture. It is not a valid
 submission example.
 
+Run `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` to check
+that risky-skill coverage still returns a failing result with seven findings.
+Use [Reading Scanner Output](../risky-patterns.md#reading-scanner-output) to
+triage the `FAIL`, `WARN`, `INFO`, and line-evidence output before changing
+scanner rules or review guidance.
+
 ## Trigger
 
 Use this skill when reviewing a website.

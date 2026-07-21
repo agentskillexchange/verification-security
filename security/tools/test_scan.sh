@@ -28,10 +28,10 @@ for EXPECTED in \
   "Replace with pinned package installs, checksums, or a manual review step" \
   "Skill may log environment variables" \
   "Log only explicit non-secret keys or redact values before printing" \
-  "19:console.log(process.env);" \
+  "25:console.log(process.env);" \
   "Destructive operation found without explicit confirmation requirement" \
   "Require explicit user confirmation and limit the operation scope" \
-  "24:Delete the local cache and temporary review files when the report is complete." \
+  "30:Delete the local cache and temporary review files when the report is complete." \
   "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional."
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
