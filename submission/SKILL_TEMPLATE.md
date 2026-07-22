@@ -55,6 +55,13 @@ Before submitting this skill for Agent Skill Exchange review, complete the check
 Requested review outcome: [Published only / Security Reviewed / unsure]
 Evidence for Security Reviewed, if requested: [scanner result, manual review notes, fixture output, or other evidence]
 
+Reviewer evidence packet:
+
+- Scanner command and result: [`security/tools/scan.sh path/to/SKILL.md`, exit code, unresolved findings]
+- Manual checks completed: [prompt injection / data handling / permissions / destructive actions / external services]
+- Risky flow tested, if applicable: [sandbox or non-production evidence, or "not applicable"]
+- Follow-up needed: [open questions, owner, and blocking status, or "none"]
+
 ## Usage Examples
 
 ```
