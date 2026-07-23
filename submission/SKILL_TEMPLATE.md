@@ -62,6 +62,8 @@ Reviewer evidence packet:
 - Risky flow tested, if applicable: [sandbox or non-production evidence, or "not applicable"]
 - Follow-up needed: [open questions, owner, and blocking status, or "none"]
 
+See [`examples/reviewer-evidence-packet.md`](../examples/reviewer-evidence-packet.md) for a filled example.
+
 ## Usage Examples
 
 ```
