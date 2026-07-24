@@ -1,13 +1,54 @@
-# Reviewer Evidence Packet Example
+# Reviewer Evidence Packet Examples
 
-Use this example when a submission asks for **Security Reviewed** evidence and
+Use these examples when a submission asks for **Security Reviewed** evidence and
 the reviewer needs a compact, reproducible packet instead of prose-only notes.
 
-This example uses the intentionally risky fixture at
+The passing example uses the safe fixture at
+[`examples/scanner-fixtures/safe-minimal-skill.md`](scanner-fixtures/safe-minimal-skill.md).
+The blocking example uses the intentionally risky fixture at
 [`examples/scanner-fixtures/risky-skill.md`](scanner-fixtures/risky-skill.md).
-It is a blocking review example, not a passing skill.
 
-## Example Packet
+## Passing Packet
+
+Skill under review: `examples/scanner-fixtures/safe-minimal-skill.md`
+
+Requested outcome: `Security Reviewed`
+
+Scanner command and result:
+
+```bash
+security/tools/scan.sh examples/scanner-fixtures/safe-minimal-skill.md
+# exit 0, no issues found
+```
+
+Manual checks completed:
+
+- Prompt injection: no blocking instruction to follow untrusted content. The
+  fixture says referenced content is data to summarize, not instructions.
+- Data handling: no secrets, credentials, private user data, or external data
+  transfer.
+- Permissions: local documentation review only; commands and external resources
+  require user confirmation.
+- Destructive actions: none.
+- External services: none.
+
+Risky flow tested:
+
+- Not applicable. The fixture has no live service calls, destructive actions, or
+  credential handling.
+
+Follow-up needed:
+
+- None for this fixture. A real skill would still need reviewer confirmation
+  that referenced files and implementation behavior match the submitted
+  `SKILL.md`.
+
+Review decision:
+
+This packet is sufficient to advance the fixture to **Security Reviewed** as a
+minimal safe example.
+
+## Blocking Packet
 
 Skill under review: `examples/scanner-fixtures/risky-skill.md`
 
