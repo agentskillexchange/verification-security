@@ -9,6 +9,7 @@ and completed reviewer evidence packets.
 | Scanner and manual-review decisions | [`risky-patterns.md`](risky-patterns.md) | Mapping `FAIL`, `WARN`, `INFO`, and line evidence to review actions. |
 | Browser/session data handling | [`session-data-handling.md`](session-data-handling.md) | Reviewing cookies, local storage, screenshots, and signed-in page evidence. |
 | Permission scope boundaries | [`permission-scope.md`](permission-scope.md) | Reviewing broad tool, file, browser, messaging, and account access. |
+| Dependency update trust | [`dependency-update-trust.md`](dependency-update-trust.md) | Reviewing package installs, version upgrades, changelog instructions, and migration side effects. |
 | Passing and blocking evidence packets | [`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) | Seeing what reproducible `Security Reviewed` or `Published only` evidence looks like. |
 | A clean scanner target | [`scanner-fixtures/safe-minimal-skill.md`](scanner-fixtures/safe-minimal-skill.md) | Checking the scanner's no-issue path and a minimal safe review packet. |
 | An intentionally risky scanner target | [`scanner-fixtures/risky-skill.md`](scanner-fixtures/risky-skill.md) | Confirming expected risky findings and practicing scanner-output triage. |
