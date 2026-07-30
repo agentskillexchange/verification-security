@@ -36,6 +36,12 @@ Review expectation: every permission has a narrow reason, unrelated tools are
 explicitly out of scope, and the skill asks before external or irreversible
 actions.
 
+Evidence handoff: after applying this example, record each requested permission,
+the workflow it supports, any excluded tools, confirmation requirements,
+validation result, and label decision in a reviewer packet. Use
+[`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) for the expected
+packet shape.
+
 ## NOT for
 
 Do not use this pattern to approve skills that:

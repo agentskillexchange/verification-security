@@ -41,6 +41,12 @@ Review expectation: the skill separates evidence collection from live change
 authority, scopes production access to a named action, and records rollback and
 validation evidence before approval.
 
+Evidence handoff: after applying this example, record the production target,
+confirmation requirement, rollback evidence, validation result, and label
+decision in a reviewer packet. Use
+[`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) for the expected
+packet shape.
+
 ## NOT for
 
 Do not use this pattern to approve skills that:

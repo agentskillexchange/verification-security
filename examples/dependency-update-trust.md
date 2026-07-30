@@ -43,6 +43,12 @@ Review expectation: the skill treats update sources as evidence, not
 instructions; limits the dependency scope; calls out install or migration side
 effects; and leaves reproducible version and validation evidence.
 
+Evidence handoff: after applying this example, record the package name, trusted
+source, version change, migration or script approval state, validation result,
+rollback path, and label decision in a reviewer packet. Use
+[`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) for the expected
+packet shape.
+
 ## NOT for
 
 Do not use this pattern to approve skills that:
