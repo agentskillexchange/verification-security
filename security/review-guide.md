@@ -49,3 +49,5 @@ Use one of these outcomes:
 - **Security Reviewed:** the skill passed the additional security review and can use the public label.
 
 Record enough evidence for another reviewer to reproduce the decision, then apply the lifecycle rules for label changes or downgrades.
+
+For borderline cases involving broad permissions, browser/session data, dependency updates, or production systems, compare the case with the manual-review examples in [`../examples/README.md`](../examples/README.md) before assigning the label, then record the decision using the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md) format.
