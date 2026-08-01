@@ -38,6 +38,7 @@ Ask these before spending time on polish:
 - Are any setup steps, required secrets, or user-visible side effects hidden or vague?
 
 If the answer is yes and the skill does not include clear safeguards, mark it **Needs changes**.
+For borderline permission, browser/session data, dependency update, or production-system cases, compare the submission with the manual-review examples in [`../examples/README.md`](../examples/README.md), then record the decision using the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md) format.
 
 ## 4. Pick the Review Outcome
 
