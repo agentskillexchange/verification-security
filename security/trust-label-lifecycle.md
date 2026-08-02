@@ -23,6 +23,18 @@ Keep **Published** when the skill remains clear, scoped, catalog-ready, and free
 
 Keep **Security Reviewed** only when changes do not weaken the reviewed assumptions. Recheck the label after any change to tool access, external services, prompt-injection handling, destructive actions, authentication, or data flow.
 
+## Recheck Evidence
+
+When a material change keeps a skill at **Security Reviewed**, record evidence that compares the new version to the reviewed version:
+
+- Changed files or PR diff reviewed.
+- Scanner command and result from the changed version.
+- Manual checks repeated for any changed tool, API, browser, file, email, messaging, network, authentication, data-flow, prompt-injection, or destructive-action behavior.
+- Risky-flow test repeated in a sandbox or non-production context when the changed behavior can affect external systems, private data, money, publishing, deployment, deletion, or account state.
+- Decision note explaining why the prior label still applies, or why the skill is downgraded to **Published** until evidence is complete.
+
+If the change removes or weakens prior review evidence, downgrade first and restore **Security Reviewed** only after the missing evidence is replaced.
+
 ## Downgrade Reasons
 
 Downgrade **Security Reviewed** to **Published** when:
