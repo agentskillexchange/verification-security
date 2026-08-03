@@ -16,6 +16,8 @@ Use this checklist again before keeping an existing label when a skill changes. 
 
 If the new evidence is incomplete, keep or downgrade to **Published** until the Security Reviewed checks below pass again.
 
+For material changes, record the recheck using the [`Recheck Evidence`](../security/trust-label-lifecycle.md#recheck-evidence) fields before keeping **Security Reviewed**.
+
 ## Published Readiness
 
 ### Identity and Description
