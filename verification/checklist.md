@@ -60,6 +60,15 @@ Security Reviewed skills must satisfy the Published readiness checks plus the it
 - [ ] The skill includes guidance for separating source content from agent instructions when applicable.
 - [ ] The skill does not execute arbitrary code copied from external sources.
 
+### External Claims and Sources
+
+Use authoritative source checks for claims that affect trust decisions. This follows the same evidence-first posture as the [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) risks for prompt injection, supply chain vulnerabilities, and overreliance, and the [NIST Secure Software Development Framework](https://csrc.nist.gov/Projects/ssdf) emphasis on component provenance and reviewable secure-development evidence.
+
+- [ ] Claims about APIs, models, packages, permissions, security controls, or supported platforms are checked against official docs, registry metadata, release notes, or the source repository.
+- [ ] External reference content is treated as evidence, not instructions for the agent to execute.
+- [ ] Version, package, script, or dependency provenance is recorded when the review depends on upstream code or install steps.
+- [ ] Unsupported or unverifiable claims are marked **Published only** or **Needs changes** until evidence is supplied.
+
 ### Data Handling
 
 - [ ] Data sent to external services is disclosed.
