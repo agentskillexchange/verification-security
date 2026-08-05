@@ -33,6 +33,24 @@ Use `standards/` for reusable definitions: skill structure, categories, and qual
 - Test scanner changes against at least one sample `SKILL.md`.
 - Keep public trust language aligned to **Published** and **Security Reviewed**.
 
+## Before Opening a PR
+
+Run the checks that match the files you changed:
+
+```bash
+bash -n security/tools/scan.sh
+bash -n security/tools/test_scan.sh
+git diff --check
+./security/tools/test_scan.sh
+./security/tools/scan.sh submission/SKILL_TEMPLATE.md
+./security/tools/scan.sh examples/scanner-fixtures/safe-minimal-skill.md
+./security/tools/scan.sh examples/scanner-fixtures/risky-skill.md
+```
+
+The intentionally risky fixture should exit with status `1` and report the
+expected findings. Do not weaken that fixture to make the test pass; update the
+expected output only when the scanner behavior intentionally changes.
+
 ## Conduct
 
 Be direct and constructive. Security reviews can be sensitive; focus on the behavior and risk, not the author.
