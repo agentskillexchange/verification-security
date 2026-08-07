@@ -12,6 +12,7 @@ and completed reviewer evidence packets.
 | Dependency update trust | [`dependency-update-trust.md`](dependency-update-trust.md) | Reviewing package installs, version upgrades, changelog instructions, and migration side effects. |
 | Production boundaries | [`production-boundaries.md`](production-boundaries.md) | Reviewing live deploys, migrations, customer-data access, rollback paths, and incident scopes. |
 | Passing and blocking evidence packets | [`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) | Seeing what reproducible `Security Reviewed` or `Published only` evidence looks like. |
+| Review decision note | [`review-decision-note.md`](review-decision-note.md) | Turning evidence into a concise PR, issue, or review-record outcome. |
 | A clean scanner target | [`scanner-fixtures/safe-minimal-skill.md`](scanner-fixtures/safe-minimal-skill.md) | Checking the scanner's no-issue path and a minimal safe review packet. |
 | An intentionally risky scanner target | [`scanner-fixtures/risky-skill.md`](scanner-fixtures/risky-skill.md) | Confirming expected risky findings and practicing scanner-output triage. |
 
