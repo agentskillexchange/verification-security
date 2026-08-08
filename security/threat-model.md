@@ -1,5 +1,10 @@
 # Threat Model for Agent Skills
 
+This threat model is a reviewer aid, not a complete security assessment. Use it with the
+[Security Review Guide](review-guide.md), [Verification Checklist](../verification/checklist.md),
+and source-backed references such as the [OWASP Top 10 for Large Language Model Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+and [NIST SSDF SP 800-218](https://csrc.nist.gov/Projects/ssdf).
+
 ## Assets
 
 - User files, messages, emails, calendar data, browser sessions, and other local context.
@@ -49,6 +54,29 @@ Mitigations:
 - Prefer single-responsibility skills.
 - Document all tools, permissions, and side effects.
 - Test actual behavior against the stated trigger and purpose.
+
+Reviewer checks:
+
+- Compare requested tools and permissions against the skill's stated purpose.
+- Flag broad write, browser, email, messaging, shell, deployment, or account access when the skill only needs read-only or local context.
+- Ask for a smaller permission scope or a clear confirmation step before allowing broad agency.
+
+### Supply Chain and Helper Scripts
+
+A skill can inherit risk from helper scripts, install commands, packages, model prompts, datasets, or external services that reviewers do not inspect.
+
+Mitigations:
+
+- Record source repositories, package names, versions, and install commands when they affect trust decisions.
+- Prefer pinned or reviewable dependencies over opaque installers, generated blobs, or `curl | sh` setup paths.
+- Review helper scripts and templates before treating a clean `SKILL.md` scan as sufficient evidence.
+- Recheck dependency or service changes before keeping **Security Reviewed**.
+
+Reviewer checks:
+
+- Verify package, API, and platform claims against official docs, registry metadata, release notes, or source repositories.
+- Identify transitive tools or scripts that can read files, call networks, write outputs, or execute commands.
+- Treat unsupported provenance, stale dependencies, or unreviewed install scripts as **Published only** or **Needs changes** until evidence is supplied.
 
 ### Destructive or Public Actions
 
