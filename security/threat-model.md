@@ -19,6 +19,21 @@ and [NIST SSDF SP 800-218](https://csrc.nist.gov/Projects/ssdf).
 - Compromised upstream services or dependencies used by a skill.
 - Well-intentioned authors who accidentally over-scope permissions or under-document side effects.
 
+## Review Outcome Cues
+
+Use these cues after reading the full skill, scanner output, helper files, and any evidence packet. They do not replace the
+[Trust Label Lifecycle](trust-label-lifecycle.md); they help reviewers turn a threat-model finding into a consistent review outcome.
+
+| Finding | Typical outcome | Evidence needed before **Security Reviewed** |
+|---------|-----------------|----------------------------------------------|
+| Untrusted content can steer instructions, tool calls, or follow-up actions. | **Needs changes** until content is isolated from instructions. | Documented prompt-injection boundary, forbidden actions, and confirmation for risky external or destructive actions. |
+| Private data can be sent, logged, or stored without clear disclosure. | **Needs changes** until data flow and logging behavior are bounded. | External services, data fields, retention-sensitive logs, and redaction behavior are disclosed and checked. |
+| Permission scope is broader than the stated skill purpose. | **Needs changes** for unnecessary broad write or account access; **Published only** if the scope is disclosed but not fully reviewed. | Tool and permission list matches the stated purpose, with narrower defaults or explicit confirmation for broad agency. |
+| Helper scripts, packages, or install paths are not reviewable. | **Published only** or **Needs changes** until provenance is supplied. | Source, package, version, install command, and helper-script behavior are reviewable and current. |
+| Destructive, public, spending, messaging, merge, deploy, or account-changing actions can run without approval. | **Needs changes** until approval and rollback expectations are clear. | Dry-run or preview behavior, explicit user confirmation, and rollback notes where rollback is possible. |
+
+Advance to **Security Reviewed** only when the relevant finding is disclosed, scoped, controlled, and reproducible from the review record.
+
 ## Attack Vectors
 
 ### Prompt Injection
