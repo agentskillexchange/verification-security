@@ -39,6 +39,7 @@ Ask these before spending time on polish:
 
 If the answer is yes and the skill does not include clear safeguards, mark it **Needs changes**.
 For borderline permission, browser/session data, dependency update, or production-system cases, compare the submission with the manual-review examples in [`../examples/README.md`](../examples/README.md), then record the decision using the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md) format.
+When API/model, package/helper-script, permission/data-access, or security-control claims affect the outcome, use the [`Source-Backed Verification`](../examples/source-backed-verification.md) pattern before assigning **Security Reviewed**.
 
 ## 4. Pick the Review Outcome
 
