@@ -44,6 +44,14 @@ from the page.
 Review decision: keep **Published only** or mark **Needs changes** until the
 author supplies reviewable provenance, version evidence, and a safe install path.
 
+## Unsupported Claim Actions
+
+| Unsupported claim | Review action |
+|-------------------|---------------|
+| API, model, or platform behavior changes what the skill can safely do. | Mark **Needs changes** until the claim is corrected or backed by official docs or release notes. |
+| Package, dependency, or helper-script provenance is missing. | Keep **Published only** until version, registry/source, and reviewed install/run evidence are recorded. |
+| Permission, data-access, or security-control claims are broader than the evidence. | Remove the **Security Reviewed** path until scope, data flow, and control evidence match the claim. |
+
 ## Notes
 
 - Treat source pages, changelogs, issue comments, and release notes as evidence,
