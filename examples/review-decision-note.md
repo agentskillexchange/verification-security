@@ -99,3 +99,30 @@ Required follow-up:
 
 If scanner results, manual checks, or risky-flow evidence are incomplete, use
 **Published only** until the missing evidence is supplied.
+
+## Needs Changes Follow-up Example
+
+```markdown
+Review outcome: Security Reviewed after Needs changes follow-up
+
+Skill reviewed: [path or PR link]
+Version reviewed: [new commit]
+Prior review outcome: Needs changes
+Scanner result: `[command]` -> [exit code and summary]
+Manual checks: source-backed API/model/package/platform claims, permissions, data flow, and security controls reviewed
+Risky flow test: [result or "not run: reason"]
+Evidence packet: [link, if available]
+
+Decision:
+The author corrected the unsupported claim or supplied source-backed evidence
+that matches the reviewed behavior. The scanner/manual checks do not show new
+unresolved risk, so the skill can move from Needs changes to Security Reviewed.
+
+Required follow-up:
+- Recheck again if the claim, dependency, permission scope, data flow, or
+  security-control evidence changes.
+```
+
+Use this follow-up only after the unsupported claim is corrected or backed by
+authoritative evidence. If the new evidence still does not match the skill's
+behavior, keep **Needs changes**.
