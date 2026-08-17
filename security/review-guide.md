@@ -51,3 +51,5 @@ Use one of these outcomes:
 Record enough evidence for another reviewer to reproduce the decision, then apply the lifecycle rules for label changes or downgrades.
 
 For borderline cases involving broad permissions, browser/session data, dependency updates, or production systems, compare the case with the manual-review examples in [`../examples/README.md`](../examples/README.md) before assigning the label, then record the decision using the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md) format.
+
+When a skill returns after **Needs changes** for unsupported API, model, package, platform, permission, or security-control claims, verify the corrected claim with the [`Source-Backed Verification`](../examples/source-backed-verification.md) pattern and record the result with the [`Needs Changes Follow-up Example`](../examples/review-decision-note.md#needs-changes-follow-up-example) before moving it to **Security Reviewed**.
