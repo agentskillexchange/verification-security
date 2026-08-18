@@ -49,6 +49,7 @@ Before submitting this skill for Agent Skill Exchange review, complete the check
 - [ ] Data sent to external services is minimized and described in plain language.
 - [ ] Destructive, irreversible, or production-affecting actions require explicit user confirmation.
 - [ ] Prompt-injection risk from web pages, documents, user files, or third-party content is handled with clear boundaries.
+- [ ] Claims about APIs, models, packages, platforms, permissions, or security controls are backed by official docs, registry/source links, release notes, or checked implementation evidence.
 - [ ] Long provider docs, schemas, generated outputs, or examples are kept in separate files instead of crowding the main instructions.
 - [ ] `security/tools/scan.sh` was run against this `SKILL.md`, and any warnings are either fixed or documented for reviewer follow-up.
 
@@ -58,6 +59,7 @@ Evidence for Security Reviewed, if requested: [scanner result, manual review not
 Reviewer evidence packet:
 
 - Scanner command and result: [`security/tools/scan.sh path/to/SKILL.md`, exit code, unresolved findings]
+- Source-backed claims checked: [API/model/package/platform/permission/security-control claims, source checked, and unsupported parts, or "none"]
 - Manual checks completed: [prompt injection / data handling / permissions / destructive actions / external services]
 - Risky flow tested, if applicable: [sandbox or non-production evidence, or "not applicable"]
 - Follow-up needed: [open questions, owner, and blocking status, or "none"]
