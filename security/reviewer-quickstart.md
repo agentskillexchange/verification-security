@@ -57,6 +57,7 @@ Include enough evidence for another reviewer to reproduce the decision:
 
 - Skill path and commit or PR.
 - Scanner command and result.
+- Source-backed claim checks from the submission, including unsupported API, model, package, platform, permission, or security-control claims.
 - Manual notes for prompt injection, data handling, permissions, side effects, and destructive actions.
 - Any sandbox test performed for risky flows.
 - Final outcome and required follow-up.
