@@ -32,6 +32,11 @@ Manual checks completed:
 - Destructive actions: none.
 - External services: none.
 
+Source-backed claims checked:
+
+- None. The fixture does not claim specific API, model, package, platform,
+  permission, or security-control behavior.
+
 Risky flow tested:
 
 - Not applicable. The fixture has no live service calls, destructive actions, or
@@ -73,6 +78,13 @@ Manual checks completed:
   confirmation before deleting local cache or review files.
 - External services: needs owner confirmation for the download URL and install
   path.
+
+Source-backed claims checked:
+
+- Helper-script provenance: unsupported. The fixture uses an unpinned remote
+  install script, so the source, version, and reviewed install path are missing.
+- Permission and destructive-action claims: unsupported until the requested file
+  deletion behavior is scoped and requires explicit confirmation.
 
 Risky flow tested:
 
