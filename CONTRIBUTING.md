@@ -22,6 +22,10 @@ Add concrete risk patterns to `security/review-guide.md` or `security/threat-mod
 
 Update `security/tools/scan.sh` when a lightweight automated check can catch an issue before human review. Include a short explanation of the risk the check addresses.
 
+### Improve Submission Evidence
+
+Update `submission/SKILL_TEMPLATE.md` when authors need clearer evidence prompts for **Security Reviewed** requests. Keep those prompts aligned with `examples/reviewer-evidence-packet.md` so reviewers can turn submitted scanner results, source-backed claim checks, manual checks, risky-flow evidence, and open follow-ups into one review record.
+
 ### Refine Standards
 
 Use `standards/` for reusable definitions: skill structure, categories, and quality language. Keep marketplace catalog data out of this repo.
