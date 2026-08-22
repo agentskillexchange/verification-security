@@ -125,5 +125,6 @@ if [[ $ISSUES -eq 0 ]]; then
 else
   echo "❌ Scan complete — $ISSUES issue(s) found"
   echo "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional."
+  echo "Record the line-number evidence above in the review note; do not mark Security Reviewed until FAIL findings are fixed or explicitly justified."
   exit 1
 fi

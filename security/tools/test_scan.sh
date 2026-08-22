@@ -32,7 +32,8 @@ for EXPECTED in \
   "Destructive operation found without explicit confirmation requirement" \
   "Require explicit user confirmation and limit the operation scope" \
   "30:Delete the local cache and temporary review files when the report is complete." \
-  "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional."
+  "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional." \
+  "Record the line-number evidence above in the review note; do not mark Security Reviewed until FAIL findings are fixed or explicitly justified."
 do
   if ! grep -Fq "$EXPECTED" <<<"$OUTPUT"; then
     echo "Missing expected scanner output: $EXPECTED"
