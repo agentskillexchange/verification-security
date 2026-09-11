@@ -8,6 +8,10 @@ full evidence packet first.
 Keep the note short. Link the fuller evidence packet when a second reviewer
 needs to reproduce the decision.
 
+If the submission requested `unsure`, keep that value in `Requested outcome`,
+then convert the evidence into one final review outcome: **Needs changes**,
+**Published only**, or **Security Reviewed**.
+
 ## Template
 
 ```markdown
