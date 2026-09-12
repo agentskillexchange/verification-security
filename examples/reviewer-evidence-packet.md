@@ -2,9 +2,10 @@
 
 Use these examples when a submission asks for **Security Reviewed** evidence and
 the reviewer needs a compact, reproducible packet instead of prose-only notes.
-After completing a packet, copy the outcome, scanner summary, manual checks, and
-follow-up into the [`Review Decision Note`](review-decision-note.md) so the PR,
-issue, or review record has a short decision that links back to this evidence.
+After completing a packet, copy the requested outcome, scanner summary, manual
+checks, source-backed claims, risky-flow evidence, and follow-up into the
+[`Review Decision Note`](review-decision-note.md) so the PR, issue, or review
+record has a short decision that links back to this evidence.
 
 The passing example uses the safe fixture at
 [`examples/scanner-fixtures/safe-minimal-skill.md`](scanner-fixtures/safe-minimal-skill.md).
