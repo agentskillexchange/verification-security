@@ -52,6 +52,12 @@ author supplies reviewable provenance, version evidence, and a safe install path
 | Package, dependency, or helper-script provenance is missing. | Keep **Published only** until version, registry/source, and reviewed install/run evidence are recorded. |
 | Permission, data-access, or security-control claims are broader than the evidence. | Remove the **Security Reviewed** path until scope, data flow, and control evidence match the claim. |
 
+After choosing the review action, copy the unsupported part and the next author
+evidence needed into the `Required follow-up` field of
+[`review-decision-note.md`](review-decision-note.md). Keep the note specific
+enough for the author to supply the missing source, version, permission scope,
+or corrected claim without re-reading the full evidence packet.
+
 ## Notes
 
 - Treat source pages, changelogs, issue comments, and release notes as evidence,
