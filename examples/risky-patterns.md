@@ -22,6 +22,12 @@ This is not a substitute for the full [Security Review Guide](../security/review
 - Borderline cases should stay **Published only** until safeguards and evidence are clear.
 - **Security Reviewed** requires the risk to be disclosed, scoped, controlled, and reproducible from the review evidence.
 
+When manual review finds a risk the scanner cannot prove by itself, preserve the
+decision evidence before assigning the final label: note the skill section,
+helper file, dependency, service, permission, or user action that creates the
+risk; the safeguard the author supplied; and the remaining follow-up, if any, in
+the [Reviewer Evidence Packet](reviewer-evidence-packet.md).
+
 ## Reading Scanner Output
 
 Use the scanner output as a triage queue, not a final verdict.
