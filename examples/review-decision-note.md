@@ -12,6 +12,10 @@ If the submission requested `unsure`, keep that value in `Requested outcome`,
 then convert the evidence into one final review outcome: **Needs changes**,
 **Published only**, or **Security Reviewed**.
 
+When a manual check drives the outcome, name the exact skill section, helper
+file, dependency, permission, service, or user action that creates the risk,
+then carry the required safeguard or unresolved follow-up into the note.
+
 ## Template
 
 ```markdown
