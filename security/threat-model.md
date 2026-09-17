@@ -33,6 +33,7 @@ Use these cues after reading the full skill, scanner output, helper files, and a
 | Destructive, public, spending, messaging, merge, deploy, or account-changing actions can run without approval. | **Needs changes** until approval and rollback expectations are clear. | Dry-run or preview behavior, explicit user confirmation, and rollback notes where rollback is possible. |
 
 Advance to **Security Reviewed** only when the relevant finding is disclosed, scoped, controlled, and reproducible from the review record.
+Use **Published only** for disclosed risks that are acceptable for catalog listing but still lack enough evidence for the label; use **Needs changes** when the missing safeguard or provenance blocks safe publication or leaves the reviewer guessing about behavior.
 
 ## Attack Vectors
 
