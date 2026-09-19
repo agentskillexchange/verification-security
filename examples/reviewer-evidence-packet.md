@@ -7,6 +7,10 @@ checks, source-backed claims, risky-flow evidence, and follow-up into the
 [`Review Decision Note`](review-decision-note.md) so the PR, issue, or review
 record has a short decision that links back to this evidence.
 
+If the submission requested `unsure`, keep `unsure` as the requested outcome in
+the packet, then use the recorded evidence to choose **Needs changes**,
+**Published only**, or **Security Reviewed** in the short decision note.
+
 The passing example uses the safe fixture at
 [`examples/scanner-fixtures/safe-minimal-skill.md`](scanner-fixtures/safe-minimal-skill.md).
 The blocking example uses the intentionally risky fixture at
