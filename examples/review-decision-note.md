@@ -44,6 +44,7 @@ Review outcome: Security Reviewed
 
 Skill reviewed: examples/scanner-fixtures/safe-minimal-skill.md
 Version reviewed: 9108ef9
+Requested outcome: Security Reviewed
 Scanner result: `security/tools/scan.sh examples/scanner-fixtures/safe-minimal-skill.md` -> exit 0, no issues found
 Manual checks: prompt injection, data handling, permissions, side effects, and destructive actions reviewed
 Source-backed claims: none claimed beyond local fixture behavior
@@ -66,6 +67,7 @@ Review outcome: Published only
 
 Skill reviewed: examples/scanner-fixtures/risky-skill.md
 Version reviewed: 9108ef9
+Requested outcome: Security Reviewed
 Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 7 issue(s) found
 Manual checks: prompt injection, data handling, permissions, external setup, and destructive actions reviewed
 Source-backed claims: unsupported setup and external-source claims recorded in the evidence packet
