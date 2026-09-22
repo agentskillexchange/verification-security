@@ -69,5 +69,6 @@ Include enough evidence for another reviewer to reproduce the decision:
 - Final outcome and required follow-up.
 
 Use the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md) as the copyable record, then summarize its outcome, scanner result, manual checks, and follow-up in a short [`Review Decision Note`](../examples/review-decision-note.md).
+Write the full packet when another reviewer may need to reproduce the evidence, such as **Security Reviewed** requests, `unsure` intake, scanner failures, or manual-risk decisions. Use the short decision note as the PR, issue, or review-record summary.
 
 For the full criteria, continue with the [verification checklist](../verification/checklist.md) and [security review guide](review-guide.md).
