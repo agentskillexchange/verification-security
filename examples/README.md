@@ -3,6 +3,10 @@
 Use these examples to compare safe patterns, risky patterns, scanner fixtures,
 and completed reviewer evidence packets.
 
+For a first local practice run, scan the clean fixture first and compare it to
+the passing packet, then scan the intentionally risky fixture and compare it to
+the blocking packet before writing a short decision note.
+
 | Need | Start here | Use it for |
 |------|------------|------------|
 | Small safe/risky snippets | [`review-patterns.md`](review-patterns.md) | Comparing a single `SKILL.md` instruction against an expected safeguard. |
