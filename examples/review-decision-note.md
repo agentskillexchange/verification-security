@@ -115,6 +115,11 @@ Required follow-up:
 If scanner results, manual checks, or risky-flow evidence are incomplete, use
 **Published only** until the missing evidence is supplied.
 
+For a changed manual-risk surface, keep **Security Reviewed** only when the
+new safeguard, sandbox result, or non-production test evidence is recorded.
+Otherwise, set the outcome to **Published only** and name the missing recheck
+evidence in `Required follow-up`.
+
 ## Needs Changes Follow-up Example
 
 ```markdown
