@@ -59,7 +59,7 @@ Evidence for Security Reviewed, if requested: [scanner result, manual review not
 
 Author-provided evidence packet:
 
-Fill this in before review; reviewers can copy the completed evidence into a review record or decision note instead of reconstructing it.
+Fill this in before review; reviewers can copy the completed evidence into a review record or decision note instead of reconstructing it. If any Security Reviewed evidence item is missing or unverified, request **Published only** or **unsure** and name the missing evidence in `Follow-up needed`.
 
 - Scanner command and result: [`security/tools/scan.sh path/to/SKILL.md`, exit code, unresolved findings]
 - Source-backed claims checked: [API/model/package/platform/permission/security-control claims, source checked, and unsupported parts, or "none"]
