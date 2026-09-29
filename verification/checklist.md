@@ -93,6 +93,7 @@ Use authoritative source checks for claims that affect trust decisions. This fol
 ### Review Evidence
 
 Start from the author's completed evidence packet in [`../submission/SKILL_TEMPLATE.md`](../submission/SKILL_TEMPLATE.md), verify each item below, and carry any missing or unverified evidence into `Required follow-up` before keeping **Security Reviewed**.
+After the checks pass, copy the verified outcome, scanner summary, manual checks, source-backed claim status, risky-flow evidence, and follow-up into the [`Review Decision Note`](../examples/review-decision-note.md) so the PR, issue, or review record has the same decision evidence reviewers used.
 
 - [ ] Automated scan was run with `security/tools/scan.sh`.
 - [ ] Reviewer manually inspected the full skill instructions.
