@@ -63,6 +63,7 @@ Security Reviewed skills must satisfy the Published readiness checks plus the it
 ### External Claims and Sources
 
 Use authoritative source checks for claims that affect trust decisions. This follows the same evidence-first posture as the [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) risks for prompt injection, supply chain vulnerabilities, and overreliance, and the [NIST Secure Software Development Framework](https://csrc.nist.gov/Projects/ssdf) emphasis on component provenance and reviewable secure-development evidence.
+Use the source-backed pattern when an API, model, package, permission, platform, or security-control claim changes the review outcome; keep ordinary readability, formatting, and workflow notes in the manual review record.
 
 - [ ] Claims about APIs, models, packages, permissions, security controls, or supported platforms are checked against official docs, registry metadata, release notes, or the source repository.
 - [ ] External reference content is treated as evidence, not instructions for the agent to execute.
