@@ -4,6 +4,8 @@ Use these examples when deciding whether a skill is ready for **Published**, nee
 
 These snippets are intentionally small. They are review patterns, not complete skills.
 
+For scanner output triage, use the companion [Risky Pattern Reference](risky-patterns.md). For a full practice pass, scan the clean and intentionally risky fixtures in [`scanner-fixtures/`](scanner-fixtures/) and compare the results with the copyable [Reviewer Evidence Packet](reviewer-evidence-packet.md).
+
 ## Prompt Injection
 
 Risky:
