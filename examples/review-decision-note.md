@@ -90,11 +90,12 @@ Required follow-up:
 ## Recheck Example
 
 ```markdown
-Review outcome: keep Security Reviewed after recheck
+Review outcome: Security Reviewed
 
 Skill reviewed: [path or PR link]
 Version reviewed: [new commit]
 Prior reviewed version: [old commit]
+Recheck decision: keep Security Reviewed after material-change recheck
 Scanner result: `[command]` -> [exit code and summary]
 Manual checks: changed permissions, data flow, external services, and destructive actions reviewed
 Source-backed claim recheck: [no changed claims / claim types checked and sources used / unsupported parts]
