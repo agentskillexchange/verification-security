@@ -47,7 +47,10 @@ Evidence handoff: after applying this example, record the package name, trusted
 source, version change, migration or script approval state, validation result,
 rollback path, and label decision in a reviewer packet. Use
 [`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) for the expected
-packet shape.
+packet shape. When the dependency change affects an existing label, copy the
+package/version evidence, validation result, rollback path, and final
+`Recheck decision` into [`review-decision-note.md`](review-decision-note.md) so
+the public outcome stays tied to the reviewed update.
 
 ## NOT for
 
