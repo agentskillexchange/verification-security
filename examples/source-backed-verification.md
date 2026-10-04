@@ -10,7 +10,7 @@ reviewer can check.
 | Claim type | Check against | Minimum evidence to record |
 |------------|---------------|----------------------------|
 | API or model capability | Official product docs, API reference, or release notes | Source URL, version or date checked, and any limitation that changes skill behavior. |
-| Package or helper script | Package registry, source repository, release tag, checksum, or reviewed script path | Package name, version, install command, source URL, and whether install/run steps were reviewed. |
+| Package or helper script | Package registry, source repository, release tag, checksum, or reviewed script path | Package name, version, install command, source URL, reviewed script path or entry point, and whether install/run steps were reviewed. |
 | Permission or data-access scope | Skill `SKILL.md`, tool schema, platform docs, and declared workflow | Exact permission requested, why it is needed, and what data can leave the user's environment. |
 | Security control | Official docs, configuration file, test output, or reviewed implementation | Control claimed, evidence location, test or review result, and unresolved assumptions. |
 
@@ -34,6 +34,14 @@ than instructions for the agent to follow.
 
 Review decision: this can support **Security Reviewed** if the rest of the
 review also passes.
+
+## Helper Script Cue
+
+When the skill relies on a helper script, record the script path or entry point,
+the source repository or package release that supplied it, and the exact
+install or run command reviewed. Do not treat a script as reviewable just
+because the surrounding package, blog post, or generated setup text looks
+trusted.
 
 ## Blocking Cue
 
