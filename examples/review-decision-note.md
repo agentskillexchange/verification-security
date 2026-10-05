@@ -25,6 +25,7 @@ Skill reviewed: [path or PR link]
 Version reviewed: [commit, tag, or PR SHA]
 Requested outcome: [Published only / Security Reviewed / unsure]
 Scanner result: `[command]` -> [exit code and summary]
+Scanner evidence: [FAIL/WARN/INFO labels and cited lines that affected the outcome / none]
 Manual checks: [prompt injection, data handling, permissions, side effects, destructive actions]
 Source-backed claims: [claim types checked and sources used / none claimed / unsupported parts]
 Risky flow test: [sandbox result, non-production result, or "not run: reason"]
@@ -46,6 +47,7 @@ Skill reviewed: examples/scanner-fixtures/safe-minimal-skill.md
 Version reviewed: 9108ef9
 Requested outcome: Security Reviewed
 Scanner result: `security/tools/scan.sh examples/scanner-fixtures/safe-minimal-skill.md` -> exit 0, no issues found
+Scanner evidence: none; no FAIL/WARN/INFO findings affected this outcome
 Manual checks: prompt injection, data handling, permissions, side effects, and destructive actions reviewed
 Source-backed claims: none claimed beyond local fixture behavior
 Risky flow test: not run; the fixture has no live service calls, destructive actions, or credential handling
@@ -69,6 +71,7 @@ Skill reviewed: examples/scanner-fixtures/risky-skill.md
 Version reviewed: 9108ef9
 Requested outcome: Security Reviewed
 Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 7 issue(s) found
+Scanner evidence: FAIL/WARN/INFO line evidence for prompt-following from fetched content, hardcoded credential text, curl-pipe-shell setup, raw environment logging, unconfirmed destructive action, and external URL use
 Manual checks: prompt injection, data handling, permissions, external setup, and destructive actions reviewed
 Source-backed claims: unsupported setup and external-source claims recorded in the evidence packet
 Risky flow test: not run; live execution is not approved for this intentionally risky fixture
@@ -97,6 +100,7 @@ Version reviewed: [new commit]
 Prior reviewed version: [old commit]
 Recheck decision: keep Security Reviewed after material-change recheck
 Scanner result: `[command]` -> [exit code and summary]
+Scanner evidence: [new or changed FAIL/WARN/INFO labels and cited lines / none]
 Manual checks: changed permissions, data flow, external services, and destructive actions reviewed
 Source-backed claim recheck: [no changed claims / claim types checked and sources used / unsupported parts]
 Risky flow test: [result or "not run: reason"]
@@ -130,6 +134,7 @@ Skill reviewed: [path or PR link]
 Version reviewed: [new commit]
 Prior review outcome: Needs changes
 Scanner result: `[command]` -> [exit code and summary]
+Scanner evidence: [resolved FAIL/WARN/INFO labels and cited lines / remaining findings]
 Manual checks: source-backed API/model/package/platform claims, permissions, data flow, and security controls reviewed
 Source-backed claims: [corrected claim and authoritative source checked]
 Risky flow test: [result or "not run: reason"]
