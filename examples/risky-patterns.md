@@ -41,4 +41,12 @@ Use the scanner output as a triage queue, not a final verdict.
 
 When multiple findings appear, resolve `FAIL` items before spending review time on section polish. A skill should not advance to **Security Reviewed** while hardcoded credentials, prompt-following instructions from untrusted content, or unconfirmed destructive actions remain unresolved.
 
+For `INFO` findings, separate reference-only links from touchpoints that affect
+the review outcome. Official docs or homepage links can remain review context
+when they do not change setup, permissions, data flow, or agent actions.
+Packages, helper scripts, release notes, API endpoints, command snippets, and
+permission docs need source-backed evidence before they support **Security
+Reviewed**. If that evidence is missing, keep the skill **Published only** or
+mark **Needs changes** when the skill depends on the touchpoint for safe use.
+
 Use the companion [Review Patterns](review-patterns.md) for small safe/risky snippets and the [risky scanner fixture](scanner-fixtures/risky-skill.md) to see the scanner's expected warning coverage.
