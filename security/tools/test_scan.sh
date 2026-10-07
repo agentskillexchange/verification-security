@@ -29,6 +29,7 @@ for EXPECTED in \
   "Skill may log environment variables" \
   "Log only explicit non-secret keys or redact values before printing" \
   "25:console.log(process.env);" \
+  "Source-backed next: if a URL supports API, package, permission, or security-control behavior, record source/version evidence before Security Reviewed." \
   "Destructive operation found without explicit confirmation requirement" \
   "Require explicit user confirmation and limit the operation scope" \
   "30:Delete the local cache and temporary review files when the report is complete." \

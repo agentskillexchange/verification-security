@@ -82,6 +82,7 @@ SUSPICIOUS=$(grep -oiE 'https?://[^[:space:])"'"'"']+' "$SKILL_FILE" | grep -viE
 if [[ -n "$SUSPICIOUS" ]]; then
   echo "ℹ️  INFO: External URLs found (verify these are intentional):"
   echo "$SUSPICIOUS" | sed 's/^/   /'
+  echo "   Source-backed next: if a URL supports API, package, permission, or security-control behavior, record source/version evidence before Security Reviewed."
 fi
 
 # ---- Check 5: Prompt injection patterns ----
