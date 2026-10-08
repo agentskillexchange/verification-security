@@ -90,6 +90,27 @@ Required follow-up:
 - Require explicit confirmation before destructive file actions.
 ```
 
+## INFO URL Evidence Cue
+
+When the scanner reports `INFO: External URLs found`, decide whether the URL is
+only review context or whether the skill relies on it for setup, permissions,
+API behavior, package behavior, or a security control. If the URL affects the
+review outcome, carry it into the note instead of leaving it as a generic URL
+finding:
+
+```markdown
+Scanner evidence: INFO lines 12 and 18 list an API endpoint and package
+registry URL used by the setup flow.
+Source-backed claims: package version and API behavior not yet checked against
+official docs or registry metadata
+Required follow-up:
+- Provide source/version evidence for the package and API behavior, or keep the
+  skill Published only until those claims are reviewable.
+```
+
+Reference-only docs links do not need this cue unless they support a behavior
+claim used for **Security Reviewed**.
+
 ## Recheck Example
 
 ```markdown
