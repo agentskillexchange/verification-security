@@ -16,6 +16,14 @@ The passing example uses the safe fixture at
 The blocking example uses the intentionally risky fixture at
 [`examples/scanner-fixtures/risky-skill.md`](scanner-fixtures/risky-skill.md).
 
+## Fixture Practice Path
+
+For a first evidence-packet practice run, scan the safe fixture first and copy
+the clean result into the passing packet fields below. Then scan the risky
+fixture, keep the failing exit code and issue count, and map each scanner or
+manual finding into `Manual checks completed`, `Source-backed claims checked`,
+`Risky flow tested`, and `Follow-up needed` before writing the final decision.
+
 ## Passing Packet
 
 Skill under review: `examples/scanner-fixtures/safe-minimal-skill.md`
