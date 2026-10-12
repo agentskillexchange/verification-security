@@ -16,6 +16,27 @@ When a manual check drives the outcome, name the exact skill section, helper
 file, dependency, permission, service, or user action that creates the risk,
 then carry the required safeguard or unresolved follow-up into the note.
 
+## From Packet To Note
+
+When starting from a completed
+[`Reviewer Evidence Packet`](reviewer-evidence-packet.md), copy the packet
+fields directly into this short note:
+
+| Packet field | Decision note field |
+|--------------|---------------------|
+| `Requested outcome` | `Requested outcome` |
+| `Scanner command and result` | `Scanner result` |
+| Scanner `FAIL`, `WARN`, or `INFO` lines that affected the decision | `Scanner evidence` |
+| `Manual checks completed` | `Manual checks` |
+| `Source-backed claims checked` | `Source-backed claims` |
+| `Risky flow tested` | `Risky flow test` |
+| `Follow-up needed` | `Required follow-up` |
+| `Review decision` | `Review outcome` and `Decision` |
+
+Do not upgrade a packet's requested outcome while copying it. Keep the requested
+outcome as submitted, then use the recorded evidence to choose the final
+`Review outcome`.
+
 ## Template
 
 ```markdown
