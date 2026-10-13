@@ -8,6 +8,14 @@ full evidence packet first.
 Keep the note short. Link the fuller evidence packet when a second reviewer
 needs to reproduce the decision.
 
+Use the short note by itself for low-risk **Published only** decisions, clean
+documentation-only updates, or follow-up comments where the scanner result and
+manual check summary are enough to explain the outcome. Add or link the full
+[`Reviewer Evidence Packet`](reviewer-evidence-packet.md) when the decision
+depends on reproducible evidence: **Security Reviewed** requests, `unsure`
+intake, scanner failures, source-backed claim checks, sandbox or
+non-production tests, or manual-risk tradeoffs.
+
 If the submission requested `unsure`, keep that value in `Requested outcome`,
 then convert the evidence into one final review outcome: **Needs changes**,
 **Published only**, or **Security Reviewed**.
