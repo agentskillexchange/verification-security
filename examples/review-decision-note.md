@@ -177,8 +177,14 @@ evidence in `Required follow-up`.
 
 ## Needs Changes Follow-up Example
 
+Keep `Review outcome: Needs changes` while a required safeguard, correction, or
+source-backed claim remains unresolved. Name the blocking evidence and the
+specific author action in `Required follow-up`; do not use the successful
+follow-up outcome below until the new evidence matches the skill's reviewed
+behavior.
+
 ```markdown
-Review outcome: Security Reviewed after Needs changes follow-up
+Review outcome: Security Reviewed
 
 Skill reviewed: [path or PR link]
 Version reviewed: [new commit]
