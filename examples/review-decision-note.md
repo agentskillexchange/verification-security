@@ -175,6 +175,41 @@ new safeguard, sandbox result, or non-production test evidence is recorded.
 Otherwise, set the outcome to **Published only** and name the missing recheck
 evidence in `Required follow-up`.
 
+## Downgrade To Recheck Example
+
+Use this outcome when a previously **Security Reviewed** skill remains suitable
+to publish, but a material change has removed or left incomplete the evidence
+needed to keep that stronger label. This is not a **Needs changes** decision
+unless the skill is itself unclear, unsafe, or requires remediation.
+
+```markdown
+Review outcome: Published only
+
+Skill reviewed: [path or PR link]
+Version reviewed: [new commit]
+Prior review label: Security Reviewed
+Recheck decision: downgrade to Published only pending material-change evidence
+Scanner result: `[command]` -> [exit code and summary]
+Scanner evidence: [new or changed FAIL/WARN/INFO labels and cited lines / none]
+Manual checks: [changed behavior reviewed / checks still needed]
+Source-backed claim recheck: [claims checked / claims still needing sources]
+Risky flow test: [result or "not run: reason"]
+Evidence packet: [link, if available]
+
+Decision:
+The skill can remain published, but its new [tool, data-flow, permission, or
+external-service] behavior is not yet supported by complete recheck evidence.
+Do not retain Security Reviewed until the listed evidence is reviewed.
+
+Required follow-up:
+- Provide [specific scanner, manual, source-backed, or non-production test]
+  evidence for the changed behavior, then request a fresh Security Reviewed
+  decision.
+```
+
+After the missing evidence is supplied, use the [Recheck Example](#recheck-example)
+for the new **Security Reviewed** decision; do not silently restore the label.
+
 ## Needs Changes Follow-up Example
 
 Keep `Review outcome: Needs changes` while a required safeguard, correction, or
