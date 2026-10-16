@@ -53,6 +53,23 @@ Remove or withhold **Published** when:
 - Hardcoded credentials, tokens, private URLs, cookies, or personal paths are present.
 - The skill's purpose does not match its category, description, or trigger conditions.
 
+## Temporary Downgrade or Remediation
+
+Use **Published** for a temporary downgrade when the skill remains clear and
+suitable for catalog use, but a material change has incomplete recheck
+evidence. Record the missing scanner, manual, source-backed, or
+non-production-test evidence and request a fresh **Security Reviewed**
+decision after it is supplied.
+
+Use **Needs changes** instead when the changed skill itself is unclear, unsafe,
+or missing a required safeguard, disclosure, correction, or reviewable
+provenance. In that case, name the remediation in the review record before the
+skill can pass again. For copyable record shapes, use the
+[Downgrade To Recheck Example](../examples/review-decision-note.md#downgrade-to-recheck-example)
+for the first case and the
+[Needs Changes Follow-up Example](../examples/review-decision-note.md#needs-changes-follow-up-example)
+for the second.
+
 ## Evidence Format
 
 Record enough detail for another reviewer to reproduce the decision:
