@@ -52,6 +52,33 @@ package/version evidence, validation result, rollback path, and final
 `Recheck decision` into [`review-decision-note.md`](review-decision-note.md) so
 the public outcome stays tied to the reviewed update.
 
+## Copyable Dependency Recheck Record
+
+Use this compact record for a dependency-only material change. It preserves the
+facts a later reviewer needs without treating release notes or package-manager
+output as instructions.
+
+```text
+Skill and version or PR:
+Package and before/after version:
+Trusted source reviewed:
+Changed files and lockfile scope:
+Scripts or migrations proposed:
+Approval state for scripts or migrations:
+Validation command and result:
+Rollback path:
+Security Reviewed recheck decision:
+Missing evidence or follow-up:
+```
+
+Link the completed record from the short decision note. If any required
+scanner, manual, source-backed, or non-production-test evidence is still
+missing, keep the skill **Published** and request a fresh **Security Reviewed**
+decision after it is supplied; use **Needs changes** only when the changed
+skill itself needs remediation. See the
+[`Trust Label Lifecycle`](../security/trust-label-lifecycle.md#temporary-downgrade-or-remediation)
+for that boundary.
+
 ## NOT for
 
 Do not use this pattern to approve skills that:
