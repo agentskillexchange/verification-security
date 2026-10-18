@@ -47,6 +47,36 @@ decision in a reviewer packet. Use
 [`reviewer-evidence-packet.md`](reviewer-evidence-packet.md) for the expected
 packet shape.
 
+## Copyable Production Recheck Record
+
+Use this compact record when a material change adds or alters a production
+boundary. It keeps a later reviewer from mistaking a planned live action or a
+passing staging check for evidence that the existing label still applies.
+
+```text
+Skill and version or PR:
+Prior reviewed version and label:
+Changed production target, action, or data boundary:
+Explicit confirmation required for the live action:
+Non-production validation command and observed result:
+Production validation or monitoring plan:
+Rollback path and owner:
+Customer-data or secret exposure boundary:
+Security Reviewed recheck decision:
+Missing evidence or follow-up:
+```
+
+Link the completed record from the short
+[`review-decision-note.md`](review-decision-note.md). Retain **Security
+Reviewed** only when the changed live boundary, confirmation step,
+non-production validation, and rollback evidence are recorded. If the skill
+remains suitable to publish but that recheck evidence is incomplete, keep it
+**Published** and request a fresh **Security Reviewed** decision; use **Needs
+changes** when the change itself is unsafe, unclear, or missing a required
+safeguard. See the
+[`Trust Label Lifecycle`](../security/trust-label-lifecycle.md#temporary-downgrade-or-remediation)
+for that decision boundary.
+
 ## NOT for
 
 Do not use this pattern to approve skills that:
