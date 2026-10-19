@@ -48,6 +48,7 @@ Before submitting this skill for Agent Skill Exchange review, complete the check
 - [ ] Required secrets, tokens, cookies, or private URLs are named as placeholders only; no real values are included.
 - [ ] Data sent to external services is minimized and described in plain language.
 - [ ] Destructive, irreversible, or production-affecting actions require explicit user confirmation.
+- [ ] Each new live-system action names its target, the required confirmation, non-production validation, and rollback path with an owner.
 - [ ] Prompt-injection risk from web pages, documents, user files, or third-party content is handled with clear boundaries.
 - [ ] Claims about APIs, models, packages, platforms, permissions, or security controls are backed by official docs, registry/source links, release notes, or checked implementation evidence.
 - [ ] Long provider docs, schemas, generated outputs, or examples are kept in separate files instead of crowding the main instructions.
@@ -63,7 +64,7 @@ Fill this in before review; reviewers can copy the completed evidence into a rev
 
 - Scanner command and result: [`security/tools/scan.sh path/to/SKILL.md`, exit code, unresolved findings]
 - Source-backed claims checked: [API/model/package/platform/permission/security-control claims, source checked, and unsupported parts, or "none"]
-- Manual checks completed: [prompt injection / data handling / permissions / destructive actions / external services]
+- Manual checks completed: [prompt injection / data handling / permissions / destructive actions / external services; for a live-system action, target, confirmation, non-production validation, rollback path, and owner]
 - Risky flow tested, if applicable: [sandbox or non-production evidence, or "not applicable"]
 - Follow-up needed: [open questions, owner, and blocking status, or "none"]
 
