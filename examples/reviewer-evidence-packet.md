@@ -69,6 +69,68 @@ Review decision:
 This packet is sufficient to advance the fixture to **Security Reviewed** as a
 minimal safe example.
 
+## Bounded Non-Production External-Action Packet
+
+Use this *illustrative completed packet* when a skill has one risky external
+action, such as sending a test notification or creating a test-only record.
+It shows the minimum evidence that turns “we tested it” into a reviewable
+handoff. It is not evidence for a real skill: replace every example value with
+the submitted skill's actual command, target, result, owner, and sources.
+
+Skill under review: `test-notification skill`, version `0.3.0`
+
+Requested outcome: `Security Reviewed`
+
+Scanner command and result:
+
+```bash
+security/tools/scan.sh path/to/SKILL.md
+# exit 0, no unresolved findings
+```
+
+Manual checks completed:
+
+- External action: the skill sends only the fixed test message `review check`
+  to the named `skill-review-sandbox` workspace; it does not send to a
+  production workspace or recipient.
+- Confirmation: before the send, the skill shows the workspace and message and
+  asks the user to confirm that one test notification may be sent.
+- Data handling: the message contains no customer data, secrets, file content,
+  or raw tool output. The credential is read only at send time and is neither
+  printed nor included in the review record.
+- Permissions and destructive actions: the credential is limited to the
+  sandbox workspace; the action creates one test notification and cannot
+  delete, publish, or modify production data.
+- Owner: `Skill maintainer` owns the sandbox workspace and can revoke its
+  credential or delete the test notification.
+
+Source-backed claims checked:
+
+- The real submission must link the provider's official documentation for the
+  credential scope and test-workspace behavior. This illustrative packet makes
+  no provider-specific claim.
+
+Risky flow tested:
+
+- Non-production test: after the confirmation prompt, one test notification
+  was sent to `skill-review-sandbox`; the maintainer recorded the command,
+  timestamp, and returned test-message identifier in the PR or review record.
+- Rollback: the maintainer deleted that one test notification from the sandbox
+  and recorded the result. No production workspace, recipient, or data was
+  involved.
+
+Follow-up needed:
+
+- None in this example. A real packet must name the actual sandbox target,
+  confirmation wording, owner, command/result, rollback result, and official
+  source links; otherwise request **Published only** or **Needs changes**.
+
+Review decision:
+
+This shape can support **Security Reviewed** only after the real evidence is
+present and reproducible. A stated intention to use a sandbox is not evidence
+by itself.
+
 ## Blocking Packet
 
 Skill under review: `examples/scanner-fixtures/risky-skill.md`
