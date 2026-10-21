@@ -14,6 +14,25 @@ reviewer can check.
 | Permission or data-access scope | Skill `SKILL.md`, tool schema, platform docs, and declared workflow | Exact permission requested, why it is needed, and what data can leave the user's environment. |
 | Security control | Official docs, configuration file, test output, or reviewed implementation | Control claimed, evidence location, test or review result, and unresolved assumptions. |
 
+## Source Choice and Conflict Cue
+
+Use the source closest to the behavior the skill depends on. A vendor blog,
+search result, issue comment, or generated setup snippet can help locate a
+claim, but is not enough by itself when that claim changes the review outcome.
+
+| If the skill claims... | Prefer this evidence | If the evidence conflicts or is missing |
+|------------------------|----------------------|----------------------------------------|
+| A current API, model, permission, or platform behavior | The provider's versioned product or API documentation | Record the exact limitation or conflict; do not infer the safer behavior. |
+| A package, helper, or installer provenance | The package registry plus the tagged source or reviewed release artifact | Keep **Published only** or use **Needs changes** if the reviewed artifact cannot be identified. |
+| A security control is enabled or effective | The submitted configuration or implementation plus the relevant official documentation and test result | Treat a documentation claim without matching configuration or test evidence as unsupported. |
+
+For each decision-critical source, record the URL, version or access date, the
+specific behavior it supports, and any limitation that changes the skill's
+safe path. When two authoritative sources disagree, preserve both links in the
+review record and choose the more restrictive interpretation until the author
+supplies a reproducible resolution. Do not resolve a conflict by silently
+choosing the source that permits the desired label.
+
 ## Reviewer Pattern
 
 ```markdown
