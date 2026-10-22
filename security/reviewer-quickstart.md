@@ -42,6 +42,18 @@ For borderline permission, browser/session data, dependency update, or productio
 When API/model, package/helper-script, permission/data-access, or security-control claims affect the outcome, use the [`Source-Backed Verification`](../examples/source-backed-verification.md) pattern before assigning **Security Reviewed**.
 If that check finds an unsupported claim, copy the unsupported part and the exact author evidence needed into `Required follow-up` in the short [`Review Decision Note`](../examples/review-decision-note.md).
 
+## 3a. Stop and Escalate Instead of Guessing
+
+This quickstart is a 10-minute triage pass, not a reason to force a label.
+Pause the pass and request a full evidence packet when a reviewer cannot
+confirm the skill's data flow, permissions, external side effect, source-backed
+claim, or rollback path from the submitted material. Use **Needs changes** when
+the missing safeguard or disclosure must be fixed; use **Published only** when
+the skill can be listed but the evidence is not sufficient for **Security
+Reviewed**. Record the specific unanswered question and requested evidence in
+the [`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md), then
+summarize it in the [`Review Decision Note`](../examples/review-decision-note.md).
+
 ## 4. Pick the Review Outcome
 
 If the submission requested `unsure`, treat that as an intake signal, not a
