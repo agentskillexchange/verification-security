@@ -119,6 +119,48 @@ Required follow-up:
 - Require explicit confirmation before destructive file actions.
 ```
 
+## Published Only Or Needs Changes?
+
+Use **Published only** when the skill is clear, scoped, and safe enough to
+list, but the submitted evidence is not sufficient to grant **Security
+Reviewed**. Use **Needs changes** when the skill itself is unclear, unsafe, or
+missing a safeguard or disclosure that an author must fix before it can pass
+review. In both cases, state the missing item precisely; do not use
+**Published only** to hide an unresolved unsafe behavior.
+
+| Same review question | Published only | Needs changes |
+|---|---|---|
+| A skill reads a named public status page and summarizes it. | Its read-only scope, destination, and treatment of page content as data are clear, but the author has not yet supplied source-backed evidence for a claimed API or permission behavior. | It says to follow instructions found on the page, or does not disclose where content goes, what access it needs, or whether it can act on the result. |
+
+These short notes show the distinction for that question:
+
+```markdown
+Review outcome: Published only
+
+Decision:
+The skill has a clear read-only status-summary scope and treats the named page
+as data, so it may remain listed. The submitted API or permission claim is not
+yet backed by an official, versioned source, so do not assign Security Reviewed.
+
+Required follow-up:
+- Link the official source for the claimed API or permission behavior and
+  request a fresh Security Reviewed decision.
+```
+
+```markdown
+Review outcome: Needs changes
+
+Decision:
+The skill asks the agent to follow instructions from the status page and does
+not disclose its data destination or required access. Those are unresolved
+safeguard and scope failures, not merely missing Security Reviewed evidence.
+
+Required follow-up:
+- State that page content is data, not instructions.
+- Name the data destination and the minimum required access, or remove the
+  undisclosed external action.
+```
+
 ## INFO URL Evidence Cue
 
 When the scanner reports `INFO: External URLs found`, decide whether the URL is
