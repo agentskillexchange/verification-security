@@ -6,6 +6,21 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SCANNER="$ROOT_DIR/security/tools/scan.sh"
 FIXTURE="$ROOT_DIR/examples/scanner-fixtures/risky-skill.md"
+SAFE_FIXTURE="$ROOT_DIR/examples/scanner-fixtures/safe-minimal-skill.md"
+
+SAFE_OUTPUT="$("$SCANNER" "$SAFE_FIXTURE" 2>&1)" && SAFE_STATUS=0 || SAFE_STATUS=$?
+
+if [[ "$SAFE_STATUS" -ne 0 ]]; then
+  echo "Expected scanner to exit 0 for safe fixture, got $SAFE_STATUS"
+  echo "$SAFE_OUTPUT"
+  exit 1
+fi
+
+if ! grep -Fq "Scan complete — no issues found" <<<"$SAFE_OUTPUT"; then
+  echo "Missing clean scanner result for safe fixture"
+  echo "$SAFE_OUTPUT"
+  exit 1
+fi
 
 OUTPUT="$("$SCANNER" "$FIXTURE" 2>&1)" && STATUS=0 || STATUS=$?
 
