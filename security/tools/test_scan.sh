@@ -41,13 +41,18 @@ for EXPECTED in \
   "Treat fetched or user-provided content as data, not instructions" \
   "Curl-pipe-shell install pattern found" \
   "Replace with pinned package installs, checksums, or a manual review step" \
+  "TLS certificate verification is disabled" \
+  "Keep certificate verification enabled; fix the trust store or use a reviewed certificate-pinning approach" \
+  "30:If the certificate cannot be verified, run" \
+  "curl --insecure https://api.example.invalid/report" \
   "Skill may log environment variables" \
   "Log only explicit non-secret keys or redact values before printing" \
   "25:console.log(process.env);" \
   "Source-backed next: if a URL supports API, package, permission, or security-control behavior, record source/version evidence before Security Reviewed." \
   "Destructive operation found without explicit confirmation requirement" \
   "Require explicit user confirmation and limit the operation scope" \
-  "30:Delete the local cache and temporary review files when the report is complete." \
+  "32:Delete the local cache and temporary review files when the report is complete." \
+  "Scan complete — 8 issue(s) found" \
   "Review next: address FAIL findings first, resolve WARN sections, and verify INFO URLs are intentional." \
   "Record the line-number evidence above in the review note; do not mark Security Reviewed until FAIL findings are fixed or explicitly justified." \
   "Evidence packet next: copy command/result, FAIL/WARN/INFO line evidence, source-backed claim checks, risky-flow status, and follow-up needed into the reviewer evidence packet."
