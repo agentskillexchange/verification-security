@@ -141,7 +141,7 @@ Scanner command and result:
 
 ```bash
 security/tools/scan.sh examples/scanner-fixtures/risky-skill.md
-# exit 1, 7 issue(s) found
+# exit 1, 9 issue(s) found
 ```
 
 Manual checks completed:
@@ -152,6 +152,10 @@ Manual checks completed:
   `console.log(process.env)`.
 - Permissions: needs changes. The fixture installs a remote script with
   `curl ... | bash`.
+- Remote execution: blocking. The fixture sources a remote script through shell
+  process substitution without a pinned, reviewed artifact.
+- Transport security: blocking. The fixture disables TLS certificate
+  verification for an API request.
 - Destructive actions: blocking until the skill requires explicit user
   confirmation before deleting local cache or review files.
 - External services: needs owner confirmation for the download URL and install
@@ -178,6 +182,10 @@ Follow-up needed:
 - Owner must replace raw environment logging with redacted, explicit keys.
 - Owner must replace curl-pipe-shell setup with a pinned or manually reviewed
   install path.
+- Owner must replace remote process substitution with a pinned artifact that is
+  verified and reviewed before execution.
+- Owner must keep TLS certificate verification enabled and correct the trust
+  configuration rather than bypass it.
 - Owner must add explicit confirmation before destructive file actions.
 
 Review decision:

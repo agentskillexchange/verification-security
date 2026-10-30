@@ -99,8 +99,8 @@ Review outcome: Published only
 Skill reviewed: examples/scanner-fixtures/risky-skill.md
 Version reviewed: 9108ef9
 Requested outcome: Security Reviewed
-Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 7 issue(s) found
-Scanner evidence: FAIL/WARN/INFO line evidence for prompt-following from fetched content, hardcoded credential text, curl-pipe-shell setup, raw environment logging, unconfirmed destructive action, and external URL use
+Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 9 issue(s) found
+Scanner evidence: FAIL/WARN/INFO line evidence for missing review boundaries, prompt-following from fetched content, hardcoded credential text, curl-pipe-shell setup, remote process substitution, disabled TLS verification, raw environment logging, unconfirmed destructive action, and external URL use
 Manual checks: prompt injection, data handling, permissions, external setup, and destructive actions reviewed
 Source-backed claims: unsupported setup and external-source claims recorded in the evidence packet
 Risky flow test: not run; live execution is not approved for this intentionally risky fixture
@@ -109,13 +109,16 @@ Evidence packet: examples/reviewer-evidence-packet.md#blocking-packet
 Decision:
 The skill can remain a static risky-pattern fixture, but it does not qualify for
 Security Reviewed because it includes prompt-following from untrusted content,
-raw environment logging, curl-pipe-shell setup, and unconfirmed destructive
-actions.
+curl-pipe-shell setup, remote process substitution, disabled TLS verification,
+raw environment logging, and unconfirmed destructive actions.
 
 Required follow-up:
 - Treat fetched content as data, not instructions.
 - Replace raw environment logging with explicit redacted keys.
 - Replace curl-pipe-shell setup with a pinned or manually reviewed install path.
+- Do not source remote scripts through process substitution; download a pinned
+  artifact, verify it, and review it before execution.
+- Keep TLS certificate verification enabled and fix the trust configuration.
 - Require explicit confirmation before destructive file actions.
 ```
 
