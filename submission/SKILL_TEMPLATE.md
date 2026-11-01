@@ -54,6 +54,21 @@ Before submitting this skill for Agent Skill Exchange review, complete the check
 - [ ] Long provider docs, schemas, generated outputs, or examples are kept in separate files instead of crowding the main instructions.
 - [ ] `security/tools/scan.sh` was run against this `SKILL.md`, and any warnings are either fixed or documented for reviewer follow-up.
 
+### Remote Setup or Transport Fallback (if applicable)
+
+If this skill downloads code, installs a helper, or calls an external service,
+record the safe path when that step cannot be verified:
+
+- Normal path: [pinned artifact, package version, or documented endpoint]
+- Failure boundary: [when the skill must stop instead of retrying or bypassing a check]
+- Safe alternative: [download a pinned artifact, verify its checksum or signature, and review it before execution; or defer the action]
+- Transport boundary: [keep certificate verification enabled; repair the trust configuration or obtain a reviewed, narrowly scoped pinning approach]
+- Evidence for the alternative: [registry/source URL, checksum or signature, reviewer/owner, and date checked]
+
+Do not substitute a remote shell execution path or a TLS-verification bypass for
+this evidence. See [`examples/risky-patterns.md`](../examples/risky-patterns.md)
+for the reviewer decision boundary.
+
 Requested review outcome: [Published only / Security Reviewed / unsure]
 Use **Published only** when the skill is ready for catalog listing but security evidence is incomplete, **Security Reviewed** only when the scanner/manual/source-backed evidence below is complete, and **unsure** when you need a reviewer to classify the risk first.
 Evidence for Security Reviewed, if requested: [scanner result, manual review notes, fixture output, or other evidence]
