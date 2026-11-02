@@ -69,6 +69,22 @@ Do not substitute a remote shell execution path or a TLS-verification bypass for
 this evidence. See [`examples/risky-patterns.md`](../examples/risky-patterns.md)
 for the reviewer decision boundary.
 
+### External-Service Data Boundary (if applicable)
+
+If the skill sends user, workspace, or session-derived data to an external
+service, record the minimum necessary transfer and its lifecycle:
+
+- Data fields and purpose: [each field or document excerpt, and why the service needs it]
+- Minimization and redaction: [fields omitted, masked, or summarized before transfer]
+- Destination and access: [named service, account/workspace, and who can access the result]
+- Retention and deletion: [documented retention behavior or configured setting; deletion path, owner, and expected completion]
+- Evidence and unresolved limits: [provider documentation, configuration/result, date checked, and any unknown retention or deletion behavior]
+
+Do not describe a service as retaining or deleting data when that behavior has
+not been verified. Treat an unknown data destination, retention period, or
+deletion path as reviewer follow-up; request **Published only** or **unsure**
+until the evidence supports **Security Reviewed**.
+
 Requested review outcome: [Published only / Security Reviewed / unsure]
 Use **Published only** when the skill is ready for catalog listing but security evidence is incomplete, **Security Reviewed** only when the scanner/manual/source-backed evidence below is complete, and **unsure** when you need a reviewer to classify the risk first.
 Evidence for Security Reviewed, if requested: [scanner result, manual review notes, fixture output, or other evidence]
