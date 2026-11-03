@@ -164,6 +164,90 @@ Required follow-up:
   undisclosed external action.
 ```
 
+## External-Service Data-Flow Decision Examples
+
+Use these *illustrative* notes when a skill sends a bounded summary to a named
+external service. A clean scanner result does not, by itself, establish where
+data goes, who can access it, how long it remains there, or whether the
+service-specific claims are reviewable. Start with the completed
+[`External-Service Data Boundary`](../submission/SKILL_TEMPLATE.md#external-service-data-boundary)
+and preserve the real service, fields, owner, source, and test result in the
+review record.
+
+### Published only: safe scope, incomplete review evidence
+
+```markdown
+Review outcome: Published only
+
+Skill reviewed: incident-summary skill
+Version reviewed: [submitted commit]
+Requested outcome: Security Reviewed
+Scanner result: `security/tools/scan.sh path/to/SKILL.md` -> exit 0, no issues found
+Manual checks: the skill sends only an author-selected, redacted summary to the
+named service after confirmation; no credentials or raw incident text are sent
+
+Decision:
+The disclosed flow is narrow enough to list, but the submission does not yet
+identify the service retention/deletion owner or provide the official source
+for the stated access control. Do not assign Security Reviewed from a clean
+scan alone.
+
+Required follow-up:
+- Record retention/deletion ownership and link the official access-control
+  source, then request a fresh Security Reviewed decision.
+```
+
+### Needs changes: unsafe or undisclosed flow
+
+```markdown
+Review outcome: Needs changes
+
+Skill reviewed: incident-summary skill
+Version reviewed: [submitted commit]
+Requested outcome: Security Reviewed
+Scanner result: `security/tools/scan.sh path/to/SKILL.md` -> exit 0, no issues found
+Manual checks: the skill uploads raw incident transcripts to an unnamed
+external service without confirmation, field minimization, or a destination
+access boundary
+
+Decision:
+The external transfer is not sufficiently disclosed or controlled. This is a
+safeguard failure, not merely incomplete evidence, so Published only is not an
+appropriate substitute.
+
+Required follow-up:
+- Name the service and recipient access boundary.
+- Limit and redact transferred fields, require confirmation, and record
+  retention/deletion ownership before requesting a new review.
+```
+
+### Security Reviewed: bounded flow, reproducible evidence
+
+```markdown
+Review outcome: Security Reviewed
+
+Skill reviewed: incident-summary skill
+Version reviewed: [submitted commit]
+Requested outcome: Security Reviewed
+Scanner result: `security/tools/scan.sh path/to/SKILL.md` -> exit 0, no issues found
+Manual checks: after confirmation, the skill sends only the documented,
+redacted summary fields to the named service; credential scope, recipient
+access, retention/deletion owner, and rollback path are recorded
+Source-backed claims: official service documentation and the submitted
+configuration support the reviewed access and retention controls
+Risky flow test: a non-production run recorded the command, timestamp, result,
+and deletion or rollback outcome without using customer data
+
+Decision:
+The submitted behavior matches the documented boundary, and a second reviewer
+can reproduce the control and test evidence. The external-service flow supports
+Security Reviewed for this reviewed version.
+
+Required follow-up:
+- Re-review before retaining this label if the service, fields, credential
+  scope, access boundary, retention, or rollback behavior changes.
+```
+
 ## INFO URL Evidence Cue
 
 When the scanner reports `INFO: External URLs found`, decide whether the URL is
