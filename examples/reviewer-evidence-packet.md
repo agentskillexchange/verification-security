@@ -131,6 +131,77 @@ This shape can support **Security Reviewed** only after the real evidence is
 present and reproducible. A stated intention to use a sandbox is not evidence
 by itself.
 
+## Bounded External-Service Data-Transfer Packet
+
+Use this *illustrative completed packet* when a skill sends a minimized,
+reviewable summary to a named external service. It shows the evidence a
+reviewer needs before an external transfer can support **Security Reviewed**.
+It is not evidence for a real skill: replace every example value with the
+submitted skill's actual service, fields, access boundary, owner, sources, and
+non-production result.
+
+Skill under review: `incident-summary skill`, version `0.4.0`
+
+Requested outcome: `Security Reviewed`
+
+Scanner command and result:
+
+```bash
+security/tools/scan.sh path/to/SKILL.md
+# exit 0, no unresolved findings
+```
+
+Manual checks completed:
+
+- External service and purpose: after explicit confirmation, the skill sends a
+  three-field incident summary to the named `review-sandbox` service only to
+  create a test incident record. It does not send raw transcripts, attachments,
+  customer identifiers, credentials, or tool output.
+- Field minimization and redaction: the submitted field list is `severity`,
+  `component`, and a redacted summary. The reviewer compared that list with the
+  request payload captured in the non-production test and found no extra fields.
+- Access boundary: the test workspace is accessible only to the named review
+  group. The scoped test credential can create records in that workspace and
+  cannot read other workspaces, administer users, or access production.
+- Retention and deletion: the service's submitted retention setting keeps test
+  records for seven days; `Skill maintainer` owns deletion and recorded the
+  deletion result for this test record.
+- Confirmation and rollback: before sending, the skill displays the service,
+  workspace, and three fields, then asks for confirmation. The maintainer can
+  delete the one test record using the documented sandbox procedure.
+
+Source-backed claims checked:
+
+- The review record links the service's official documentation for the scoped
+  credential, workspace access model, retention setting, and record-deletion
+  procedure, plus the submitted configuration that selects `review-sandbox`.
+- The reviewer recorded the documentation version or access date and confirmed
+  that it supports the exact controls relied on here. Marketing or setup prose
+  alone is not sufficient evidence for these claims.
+
+Risky flow tested:
+
+- Non-production test: after confirmation, the maintainer sent one redacted
+  test summary to `review-sandbox` and recorded the command, timestamp, request
+  fields, returned record identifier, and workspace in the review record.
+- Rollback: the maintainer deleted that identified test record, recorded the
+  result, and confirmed that no production workspace or customer data was used.
+
+Follow-up needed:
+
+- None for this illustrative packet. A real packet must supply the actual
+  service name, field list, access boundary, retention/deletion owner, official
+  source links, test record, and rollback result. If any is missing, use
+  **Published only** for a clear safe-to-list flow or **Needs changes** for an
+  undisclosed or unsafe transfer.
+
+Review decision:
+
+This evidence shape can support **Security Reviewed** only when the submitted
+service configuration and non-production record substantiate every field above.
+Re-review is required if the service, fields, credential scope, access boundary,
+retention, or rollback behavior changes.
+
 ## Blocking Packet
 
 Skill under review: `examples/scanner-fixtures/risky-skill.md`
