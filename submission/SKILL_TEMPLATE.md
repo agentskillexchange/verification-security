@@ -54,6 +54,24 @@ Before submitting this skill for Agent Skill Exchange review, complete the check
 - [ ] Long provider docs, schemas, generated outputs, or examples are kept in separate files instead of crowding the main instructions.
 - [ ] `security/tools/scan.sh` was run against this `SKILL.md`, and any warnings are either fixed or documented for reviewer follow-up.
 
+### Live-System Action Boundary (if applicable)
+
+For each new production, customer-facing, or persistent-system action, record
+the evidence a reviewer needs before treating it as eligible for **Security
+Reviewed**:
+
+- Target and action: [named environment, service, data store, or account and exact change]
+- Explicit confirmation: [the user-visible approval required immediately before the live action]
+- Non-production validation: [command or test, observed result, and where it ran]
+- Monitoring and stop condition: [what is watched after the action and when to stop or escalate]
+- Rollback: [what state is restored, command or procedure, and accountable owner]
+- Customer-data or secret boundary: [what is accessed or changed, or "none"]
+
+Link the completed record from the review decision note. A passing staging test
+or a planned rollback alone does not prove that a live action is safe to
+approve. See [`examples/production-boundaries.md`](../examples/production-boundaries.md)
+for a completed reviewer-facing recheck record.
+
 ### Remote Setup or Transport Fallback (if applicable)
 
 If this skill downloads code, installs a helper, or calls an external service,
