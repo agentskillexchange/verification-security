@@ -103,6 +103,28 @@ not been verified. Treat an unknown data destination, retention period, or
 deletion path as reviewer follow-up; request **Published only** or **unsure**
 until the evidence supports **Security Reviewed**.
 
+### External Dependency Evidence (if applicable)
+
+For each package, provider API, model, helper, or service whose documented
+behavior changes the skill's safe path, record evidence a second reviewer can
+reproduce:
+
+- Dependency and purpose: [name and the exact capability the skill relies on]
+- Resolved version or identifier: [package version, API version, model ID, release, or commit]
+- Authoritative source: [official documentation, registry, release artifact, or source URL]
+- Source checked: [date checked and the specific behavior or limit it supports]
+- Observed bounded behavior: [non-production command or test, result, and environment]
+- Difference or unresolved limit: [where observed behavior differs from the source, or "none"]
+- Review impact: [why this evidence supports or blocks the requested label]
+
+Do not infer behavior from a package name, a search result, a blog post, or a
+successful install. If the version cannot be identified, the source does not
+support the relied-on behavior, or the bounded observation conflicts with the
+source, record that limit and request **Published only**, **Needs changes**, or
+reviewer follow-up as appropriate. See
+[`examples/source-backed-verification.md`](../examples/source-backed-verification.md)
+for evidence-selection and conflict guidance.
+
 Requested review outcome: [Published only / Security Reviewed / unsure]
 Use **Published only** when the skill is ready for catalog listing but security evidence is incomplete, **Security Reviewed** only when the scanner/manual/source-backed evidence below is complete, and **unsure** when you need a reviewer to classify the risk first.
 Evidence for Security Reviewed, if requested: [scanner result, manual review notes, fixture output, or other evidence]
