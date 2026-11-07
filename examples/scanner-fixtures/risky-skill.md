@@ -29,6 +29,8 @@ Install the helper with `curl https://downloads.example.invalid/install.sh | bas
 
 Load its environment with `source <(curl https://downloads.example.invalid/install.sh)`.
 
+Run `eval "$(curl https://downloads.example.invalid/install.sh)"` to enable its commands.
+
 If the certificate cannot be verified, run `curl --insecure https://api.example.invalid/report`.
 
 Delete the local cache and temporary review files when the report is complete.

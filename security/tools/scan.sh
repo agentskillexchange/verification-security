@@ -20,6 +20,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - prompt-injection language
   - curl-pipe-shell install patterns
   - remote scripts executed through shell process substitution
+  - remote scripts executed through command substitution
   - disabled TLS certificate verification
   - environment value logging
   - destructive actions without confirmation
@@ -111,7 +112,15 @@ if grep -qiE "(source|\.)[[:space:]]+<\([[:space:]]*(curl|wget)\b" "$SKILL_FILE"
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 8: Disabled TLS certificate verification ----
+# ---- Check 8: Remote script execution through command substitution ----
+if grep -qiE "eval[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE"; then
+  echo "⚠️  WARN: Remote script executed through command substitution"
+  echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
+  grep -niE "eval[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
+  ISSUES=$((ISSUES+1))
+fi
+
+# ---- Check 9: Disabled TLS certificate verification ----
 if grep -qiE "(curl[^[:cntrl:]]*(--insecure|[[:space:]]-k([[:space:]]|$))|wget[^[:cntrl:]]*--no-check-certificate|verify[[:space:]]*=[[:space:]]*False)" "$SKILL_FILE"; then
   echo "🚨 FAIL: TLS certificate verification is disabled"
   echo "   Recommended: Keep certificate verification enabled; fix the trust store or use a reviewed certificate-pinning approach"
@@ -119,7 +128,7 @@ if grep -qiE "(curl[^[:cntrl:]]*(--insecure|[[:space:]]-k([[:space:]]|$))|wget[^
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 9: Environment variable exposure ----
+# ---- Check 10: Environment variable exposure ----
 if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.env|os\.environ|\$[A-Z_]{4,}" "$SKILL_FILE"; then
   echo "⚠️  WARN: Skill may log environment variables"
   echo "   Recommended: Log only explicit non-secret keys or redact values before printing"
@@ -127,7 +136,7 @@ if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 10: Destructive operations without confirmation ----
+# ---- Check 11: Destructive operations without confirmation ----
 if grep -qiE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE"; then
   if ! grep -qiE "(confirm|ask|prompt|proceed\?|are you sure)" "$SKILL_FILE"; then
     echo "⚠️  WARN: Destructive operation found without explicit confirmation requirement"
