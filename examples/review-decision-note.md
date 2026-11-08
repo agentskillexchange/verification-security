@@ -99,7 +99,7 @@ Review outcome: Published only
 Skill reviewed: examples/scanner-fixtures/risky-skill.md
 Version reviewed: 9108ef9
 Requested outcome: Security Reviewed
-Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 9 issue(s) found
+Scanner result: `security/tools/scan.sh examples/scanner-fixtures/risky-skill.md` -> exit 1, 10 issue(s) found
 Scanner evidence: FAIL/WARN/INFO line evidence for missing review boundaries, prompt-following from fetched content, hardcoded credential text, curl-pipe-shell setup, remote process substitution, disabled TLS verification, raw environment logging, unconfirmed destructive action, and external URL use
 Manual checks: prompt injection, data handling, permissions, external setup, and destructive actions reviewed
 Source-backed claims: unsupported setup and external-source claims recorded in the evidence packet
