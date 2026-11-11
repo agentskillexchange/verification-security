@@ -62,6 +62,36 @@ install or run command reviewed. Do not treat a script as reviewable just
 because the surrounding package, blog post, or generated setup text looks
 trusted.
 
+## Source Change Recheck Record
+
+Re-review a **Security Reviewed** skill when a decision-critical source changes
+even if the skill's dependency version, endpoint, or declared permission does
+not. A mutable documentation page, helper-script branch, registry record, or
+hosted policy can change the safe path without producing a package-version
+diff. Do not assume that an unchanged version means the prior source evidence
+is still current.
+
+Use this compact record to compare the reviewed source with the current one:
+
+```text
+Skill and reviewed version or PR:
+Claim or behavior affected:
+Source URL and prior version, commit, release, or access date:
+Current source version, commit, release, or access date:
+What changed and evidence location (diff, archived artifact, or release note):
+Safe-path or limitation impact:
+Bounded re-test needed and result:
+Security Reviewed recheck decision:
+Missing evidence or follow-up:
+```
+
+If the current source cannot be compared to the reviewed source, or its change
+weakens a safety assumption, keep the skill **Published only** until the
+affected claim, configuration, and bounded test evidence are refreshed. Use
+**Needs changes** when the skill's instructions now rely on behavior that is
+unsupported, unsafe, or no longer reviewable. Link the completed record from
+the [review decision note](review-decision-note.md#recheck-example).
+
 ## Blocking Cue
 
 The skill says a helper script is "safe and official" but only links a blog post,
