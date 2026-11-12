@@ -92,6 +92,33 @@ affected claim, configuration, and bounded test evidence are refreshed. Use
 unsupported, unsafe, or no longer reviewable. Link the completed record from
 the [review decision note](review-decision-note.md#recheck-example).
 
+## Worked Example: Mutable API Permission Documentation
+
+A previously reviewed issue-triage skill claims that its API token can read
+only issues in one named project. The provider replaces the permission page
+with new documentation saying that the same token scope can read every project
+in the workspace. The submitted `SKILL.md`, token name, and package versions
+did not change, but the source that justified the narrow access claim did.
+
+```text
+Skill and reviewed version or PR: issue-triage skill, PR #184
+Claim or behavior affected: Token reads issues only in project `triage-sandbox`
+Source URL and prior version, commit, release, or access date: provider API permission docs, checked 2026-10-20
+Current source version, commit, release, or access date: provider API permission docs, checked 2026-11-12
+What changed and evidence location: current documentation describes workspace-wide read access for the reviewed token scope; archived prior review note recorded project-only access
+Safe-path or limitation impact: The declared permission and data boundary are broader than the prior review assumed
+Bounded re-test needed and result: Re-check the submitted token configuration in a non-production workspace and record accessible projects; not yet run
+Security Reviewed recheck decision: Published only
+Missing evidence or follow-up: Author must supply the current scoped-token configuration and non-production access result before a new Security Reviewed decision
+```
+
+The correct immediate action is not to retain **Security Reviewed** because
+the skill itself is unchanged. It may remain **Published only** if its purpose
+and instructions are still clear, but the reviewer must refresh the permission
+evidence and the bounded test before restoring the stronger label. Use **Needs
+changes** instead if the current scope cannot be constrained to the declared
+project or makes the skill's instructions misleading.
+
 ## Blocking Cue
 
 The skill says a helper script is "safe and official" but only links a blog post,
