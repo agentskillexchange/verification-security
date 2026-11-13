@@ -24,6 +24,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - VSR009: disabled TLS certificate verification
   - VSR010: environment value logging
   - VSR011: destructive actions without confirmation
+  - VSR012: remote scripts passed to a shell with command substitution
 
 Include the VSR identifier and line evidence in a reviewer packet or decision
 note so another reviewer can trace the finding after the scan.
@@ -147,6 +148,14 @@ if grep -qiE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE"; the
     grep -niE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE" | head -5
     ISSUES=$((ISSUES+1))
   fi
+fi
+
+# ---- Check 12: Remote script passed to a shell through command substitution ----
+if grep -qiE "(bash|sh)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE"; then
+  echo "⚠️  WARN [VSR012]: Remote script passed to a shell through command substitution"
+  echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
+  grep -niE "(bash|sh)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
+  ISSUES=$((ISSUES+1))
 fi
 
 echo "=========================================="
