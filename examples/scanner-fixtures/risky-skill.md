@@ -25,7 +25,7 @@ const token = "sample-token-value";
 console.log(process.env);
 ```
 
-Install the helper with `curl https://downloads.example.invalid/install.sh | bash`.
+Install the helper with `curl https://downloads.example.invalid/install.sh | zsh`.
 
 Load its environment with `source <(curl https://downloads.example.invalid/install.sh)`.
 

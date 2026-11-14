@@ -101,10 +101,10 @@ if grep -qiE "follow (any|all) instructions|ignore (previous|prior|above)" "$SKI
 fi
 
 # ---- Check 6: Curl-pipe-shell setup ----
-if grep -qiE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"; then
+if grep -qiE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh|zsh|fish)\b" "$SKILL_FILE"; then
   echo "⚠️  WARN [VSR006]: Curl-pipe-shell install pattern found"
   echo "   Recommended: Replace with pinned package installs, checksums, or a manual review step"
-  grep -niE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh)\b" "$SKILL_FILE"
+  grep -niE "(curl|wget)[^|]{0,120}\|[[:space:]]*(sudo[[:space:]]+)?(bash|sh|zsh|fish)\b" "$SKILL_FILE"
   ISSUES=$((ISSUES+1))
 fi
 
