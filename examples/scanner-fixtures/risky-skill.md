@@ -35,4 +35,10 @@ Run `bash -c "$(curl https://downloads.example.invalid/install.sh)"` to enable i
 
 If the certificate cannot be verified, run `curl --insecure https://api.example.invalid/report`.
 
+Ask for confirmation before sending the report to the staging service.
+
+Save the report summary locally.
+Keep the report destination in the final note.
+Do not modify the staging service configuration.
+
 Delete the local cache and temporary review files when the report is complete.

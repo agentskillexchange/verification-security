@@ -23,7 +23,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - VSR008: remote scripts executed through command substitution
   - VSR009: disabled TLS certificate verification
   - VSR010: environment value logging
-  - VSR011: destructive actions without confirmation
+  - VSR011: destructive actions without nearby confirmation
   - VSR012: remote scripts passed to a shell with command substitution
 
 Include the VSR identifier and line evidence in a reviewer packet or decision
@@ -140,12 +140,22 @@ if grep -qiE "print|echo|log|console\.log" "$SKILL_FILE" && grep -qiE "process\.
   ISSUES=$((ISSUES+1))
 fi
 
-# ---- Check 11: Destructive operations without confirmation ----
-if grep -qiE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE"; then
-  if ! grep -qiE "(confirm|ask|prompt|proceed\?|are you sure)" "$SKILL_FILE"; then
-    echo "⚠️  WARN [VSR011]: Destructive operation found without explicit confirmation requirement"
-    echo "   Recommended: Require explicit user confirmation and limit the operation scope"
-    grep -niE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE" | head -5
+# ---- Check 11: Destructive operations without nearby confirmation ----
+DESTRUCTIVE_LINES="$(grep -niE "\b(rm |delete|drop table|format|wipe|truncate)" "$SKILL_FILE" || true)"
+if [[ -n "$DESTRUCTIVE_LINES" ]]; then
+  MISSING_CONFIRMATION=""
+  while IFS=: read -r LINE_NUMBER LINE_TEXT; do
+    START_LINE=$((LINE_NUMBER > 2 ? LINE_NUMBER - 2 : 1))
+    END_LINE=$((LINE_NUMBER + 2))
+    if ! sed -n "${START_LINE},${END_LINE}p" "$SKILL_FILE" | grep -qiE "(confirm|ask|prompt|proceed\?|are you sure)"; then
+      MISSING_CONFIRMATION+="${LINE_NUMBER}:${LINE_TEXT}"$'\n'
+    fi
+  done <<<"$DESTRUCTIVE_LINES"
+
+  if [[ -n "$MISSING_CONFIRMATION" ]]; then
+    echo "⚠️  WARN [VSR011]: Destructive operation found without nearby explicit confirmation"
+    echo "   Recommended: Require explicit user confirmation in the same instruction or adjacent step, and limit the operation scope"
+    printf '%s' "$MISSING_CONFIRMATION" | head -5
     ISSUES=$((ISSUES+1))
   fi
 fi
