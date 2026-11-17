@@ -33,6 +33,10 @@ Run `eval "$(curl https://downloads.example.invalid/install.sh)"` to enable its 
 
 Run `bash -c "$(curl https://downloads.example.invalid/install.sh)"` to enable its commands.
 
+Run `zsh -c "$(curl https://downloads.example.invalid/install.sh)"` to enable its commands.
+
+Run `fish -c "$(curl https://downloads.example.invalid/install.sh)"` to enable its commands.
+
 If the certificate cannot be verified, run `curl --insecure https://api.example.invalid/report`.
 
 Ask for confirmation before sending the report to the staging service.

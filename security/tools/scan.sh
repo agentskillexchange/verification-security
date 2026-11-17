@@ -161,10 +161,10 @@ if [[ -n "$DESTRUCTIVE_LINES" ]]; then
 fi
 
 # ---- Check 12: Remote script passed to a shell through command substitution ----
-if grep -qiE "(bash|sh)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE"; then
+if grep -qiE "(bash|sh|zsh|fish)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE"; then
   echo "⚠️  WARN [VSR012]: Remote script passed to a shell through command substitution"
   echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
-  grep -niE "(bash|sh)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
+  grep -niE "(bash|sh|zsh|fish)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
   ISSUES=$((ISSUES+1))
 fi
 
