@@ -33,6 +33,32 @@ review record and choose the more restrictive interpretation until the author
 supplies a reproducible resolution. Do not resolve a conflict by silently
 choosing the source that permits the desired label.
 
+## Minimal Author Evidence Handoff
+
+When a source-backed claim affects the requested label, submit this small
+bundle with the skill instead of asking the reviewer to infer the control from
+a documentation link alone. One bundle is needed for each decision-critical
+claim, such as a scoped API credential, a package's supported behavior, or a
+retention control.
+
+```text
+Claim: [the exact behavior the skill relies on]
+Skill version: [commit, tag, or PR SHA]
+Authoritative source: [official documentation, registry, release artifact, or source URL]
+Source version or date checked: [version, release, commit, or YYYY-MM-DD]
+Submitted configuration or implementation: [path, setting, or command that selects this behavior]
+Bounded observation: [non-production command or test, result, and environment]
+Limit or mismatch: [none, or the exact unsupported/different behavior]
+Recheck trigger: [what change to source, configuration, dependency, permission, or data flow invalidates this evidence]
+```
+
+The source establishes what a provider or dependency documents; the submitted
+configuration and bounded observation establish what this skill actually asks
+it to do. If either half is missing, do not infer the missing behavior. Keep a
+clear, safe-to-list skill **Published only** while the author supplies the
+evidence, or use **Needs changes** when the unsupported claim hides a required
+safeguard, permission boundary, or data flow.
+
 ## Reviewer Pattern
 
 ```markdown
