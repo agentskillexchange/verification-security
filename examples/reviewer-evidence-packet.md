@@ -16,6 +16,28 @@ The passing example uses the safe fixture at
 The blocking example uses the intentionally risky fixture at
 [`examples/scanner-fixtures/risky-skill.md`](scanner-fixtures/risky-skill.md).
 
+## Before Assigning Security Reviewed
+
+Use this short gate after completing a packet and before assigning the stronger
+label. It prevents a clean scan or a polished narrative from standing in for
+the evidence that a second reviewer needs. For each applicable surface, either
+link the submitted evidence or record why it does not apply; do not leave a
+cell implicit.
+
+| Review surface | Evidence to locate in the packet or submission | If it is missing |
+|----------------|-------------------------------------------------|-------------------|
+| Skill scope and referenced helpers | Reviewed skill version, referenced files, services, and intended action | **Needs changes** when the reviewer cannot determine what will run; otherwise keep **Published only** pending clarification. |
+| Scanner findings | Command, exit code, and the specific `FAIL`, `WARN`, or `INFO` lines that affected the decision | Do not infer that the skill is clean; rerun or keep **Published only** until the result is recorded. |
+| External service, data, or session artifact | Named destination, minimum fields, access boundary, confirmation, retention/deletion owner, and non-production result when practical | Use **Needs changes** for undisclosed or uncontrolled transfer; use **Published only** for a clear flow with incomplete evidence. |
+| Permissions or destructive/public actions | Exact resource and operation, explicit confirmation, and rollback or safe-stop path where one exists | **Needs changes** until broad or irreversible action is bounded and confirmed. |
+| Decision-critical source claim | Official source/version or date, submitted configuration, bounded observation, and recheck trigger | Keep **Published only**, or use **Needs changes** when the unsupported claim hides a required safeguard. |
+
+Only assign **Security Reviewed** when every applicable row has reviewable
+evidence and no unresolved safeguard remains. Copy any missing row into
+`Follow-up needed` and then into the short
+[`Review Decision Note`](review-decision-note.md); this makes the next author
+action concrete rather than asking them to repeat the entire review.
+
 ## Fixture Practice Path
 
 For a first evidence-packet practice run, scan the safe fixture first and copy
