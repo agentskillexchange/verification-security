@@ -25,6 +25,26 @@ Treat scanner output as review input:
 - Failures usually require a change before the skill can be labeled **Security Reviewed**.
 - A clean scan does not prove the skill is safe.
 
+## 2a. Open Referenced Helpers Before Trusting the Result
+
+The scanner reads the submitted `SKILL.md`; it does not inspect scripts,
+templates, downloaded artifacts, or configuration files that the skill refers
+to. Before choosing **Security Reviewed**, open every referenced helper that
+can read data, make a network call, invoke a tool, or change state.
+
+- Compare each helper's actual inputs, outputs, permissions, external calls,
+  and side effects with the submitted description.
+- Treat a missing, inaccessible, generated, or unpinned helper as missing
+  review evidence, not as a clean result.
+- If a helper expands data access, tool scope, or side effects beyond the
+  `SKILL.md`, use **Needs changes**. If the skill is otherwise safe to list but
+  the helper evidence is incomplete, use **Published only** and request the
+  file, resolved version, or bounded test evidence.
+
+Record the helper path or version and the result of this comparison in the
+[`Reviewer Evidence Packet`](../examples/reviewer-evidence-packet.md), so a
+later reviewer can reproduce the decision.
+
 ## 3. Check the Highest-Risk Questions
 
 If a case is hard to classify, compare it with the safe and risky [`SKILL.md` review patterns](../examples/review-patterns.md) and the compact [`Risky Pattern Reference`](../examples/risky-patterns.md).
