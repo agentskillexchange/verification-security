@@ -145,6 +145,41 @@ evidence and the bounded test before restoring the stronger label. Use **Needs
 changes** instead if the current scope cannot be constrained to the declared
 project or makes the skill's instructions misleading.
 
+## Worked Example: Claimed Package Release Does Not Match the Resolved Artifact
+
+A package name and a link to its release page do not establish which code the
+submitted skill will run. Review the package manager's resolved artifact as a
+separate fact: a lockfile, manifest, generated helper, or installation output
+can select a different version, source, or integrity value than the author
+describes. This example is illustrative; it makes no claim about a specific
+registry or package manager.
+
+A skill asks for **Security Reviewed** and says its helper uses package
+`review-helper` version `3.2.1`, whose release notes describe a required
+redaction control. The submission instead contains a lockfile entry resolving
+`review-helper` version `3.1.7`. The reviewer can inspect the official registry
+record and the submitted lockfile, but cannot show that the older resolved
+artifact provides the claimed control.
+
+```text
+Skill and reviewed version or PR: incident-summary skill, PR #206
+Claim or behavior affected: review-helper removes account identifiers before a summary is sent
+Author claim and source: review-helper 3.2.1 release page, checked 2026-11-22
+Resolved artifact evidence: submitted lockfile resolves review-helper 3.1.7 with its recorded integrity value
+What differs: the claim relies on 3.2.1, but the submitted artifact is 3.1.7; no reviewed source or bounded test establishes the control in 3.1.7
+Safe-path or limitation impact: automatic redaction is not established for the code this skill would run
+Bounded re-test needed and result: update only the named dependency in a non-production fixture, record the resolved version and integrity value, then verify the submitted redaction behavior; not yet run
+Security Reviewed recheck decision: Published only
+Missing evidence or follow-up: author must align the declared and resolved version, link the corresponding source or release artifact, and supply the bounded redaction result
+```
+
+Do not “fix” this record by changing prose to match the older artifact unless
+the author also verifies its behavior. Conversely, do not treat a newer release
+page as evidence for an older resolved dependency. Keep the skill **Published
+only** while the mismatch is clear and safely listable; use **Needs changes**
+when the unverified artifact can expose data, bypass a required safeguard, or
+contradicts the skill's instructions.
+
 ## Blocking Cue
 
 The skill says a helper script is "safe and official" but only links a blog post,
