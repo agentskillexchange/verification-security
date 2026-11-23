@@ -23,6 +23,25 @@ Keep **Published** when the skill remains clear, scoped, catalog-ready, and free
 
 Keep **Security Reviewed** only when changes do not weaken the reviewed assumptions. Recheck the label after any change to tool access, external services, prompt-injection handling, destructive actions, authentication, or data flow.
 
+## Classify a Change Before Reusing a Label
+
+Use this small decision table before copying a prior label into a new version.
+It distinguishes an editorial update from a change that can alter what an
+agent does, what it can access, or which evidence supports the decision.
+
+| Change in the submitted skill or its references | Recheck action | Label handling |
+|---|---|---|
+| Spelling, formatting, or a documentation link that does not support a behavior claim | Record the reviewed diff; no repeated scanner or manual pass is normally needed. | Keep the prior label if the reviewer confirms the operational instructions did not change. |
+| Trigger, anti-trigger, instruction, confirmation wording, or declared permission changes | Rerun the scanner and repeat the manual checks affected by the changed behavior. | Keep **Security Reviewed** only when the new boundary is supported by the recheck evidence. |
+| Helper, package, model, API, endpoint, credential scope, or external-service configuration changes | Inspect the resolved version or configuration, refresh decision-critical source evidence, and repeat a bounded non-production test when the change can affect external state or private data. | Downgrade to **Published** while evidence is incomplete; use **Needs changes** if the changed behavior is unsafe or undisclosed. |
+| A decision-critical provider document, policy, release, registry record, or hosted helper changes while the skill text does not | Compare the current source with the reviewed source and record the effect on the claim. | Do not rely on an unchanged skill version alone; recheck or temporarily downgrade until the claim remains supported. |
+| The reviewer cannot determine whether a referenced artifact or source changed | Request the resolved artifact, version, or source snapshot needed to compare it. | Keep **Published** only for an otherwise clear, safely listable skill; use **Needs changes** when the unknown blocks a required safeguard. |
+
+When the table calls for a recheck, use the evidence fields below and link the
+resulting decision note. A clean scanner alone is not enough to keep
+**Security Reviewed** after a behavior, dependency, source, or data-boundary
+change.
+
 ## Recheck Evidence
 
 When a material change keeps a skill at **Security Reviewed**, record evidence that compares the new version to the reviewed version:
