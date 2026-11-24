@@ -25,6 +25,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - VSR010: environment value logging
   - VSR011: destructive actions without nearby confirmation
   - VSR012: remote scripts passed to a shell with command substitution
+  - VSR013: remote code passed to an interpreter with command substitution
 
 Include the VSR identifier and line evidence in a reviewer packet or decision
 note so another reviewer can trace the finding after the scan.
@@ -165,6 +166,14 @@ if grep -qiE "(bash|sh|zsh|fish)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]
   echo "⚠️  WARN [VSR012]: Remote script passed to a shell through command substitution"
   echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
   grep -niE "(bash|sh|zsh|fish)[[:space:]]+-c[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
+  ISSUES=$((ISSUES+1))
+fi
+
+# ---- Check 13: Remote code passed to an interpreter through command substitution ----
+if grep -qiE "(python|python3|node|ruby|perl)[[:space:]]+(-c|-e)[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE"; then
+  echo "⚠️  WARN [VSR013]: Remote code passed to an interpreter through command substitution"
+  echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
+  grep -niE "(python|python3|node|ruby|perl)[[:space:]]+(-c|-e)[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
   ISSUES=$((ISSUES+1))
 fi
 
