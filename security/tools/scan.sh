@@ -26,6 +26,7 @@ Runs lightweight pre-review checks for common Agent Skill risks:
   - VSR011: destructive actions without nearby confirmation
   - VSR012: remote scripts passed to a shell with command substitution
   - VSR013: remote code passed to an interpreter with command substitution
+  - VSR014: remote content piped through xargs to a shell or interpreter
 
 Include the VSR identifier and line evidence in a reviewer packet or decision
 note so another reviewer can trace the finding after the scan.
@@ -174,6 +175,14 @@ if grep -qiE "(python|python3|node|ruby|perl)[[:space:]]+(-c|-e)[[:space:]]+['\"
   echo "⚠️  WARN [VSR013]: Remote code passed to an interpreter through command substitution"
   echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
   grep -niE "(python|python3|node|ruby|perl)[[:space:]]+(-c|-e)[[:space:]]+['\"]?[$][(][[:space:]]*(curl|wget)\b" "$SKILL_FILE" | head -5
+  ISSUES=$((ISSUES+1))
+fi
+
+# ---- Check 14: Remote content piped through xargs to a shell or interpreter ----
+if grep -qiE "(curl|wget)[^|]{0,120}\|[[:space:]]*xargs[^[:cntrl:]]*[[:space:]](bash|sh|zsh|fish|python|python3|node|ruby|perl)\b" "$SKILL_FILE"; then
+  echo "⚠️  WARN [VSR014]: Remote content piped through xargs to a shell or interpreter"
+  echo "   Recommended: Download a pinned artifact, verify its checksum or signature, then review before execution"
+  grep -niE "(curl|wget)[^|]{0,120}\|[[:space:]]*xargs[^[:cntrl:]]*[[:space:]](bash|sh|zsh|fish|python|python3|node|ruby|perl)\b" "$SKILL_FILE" | head -5
   ISSUES=$((ISSUES+1))
 fi
 
