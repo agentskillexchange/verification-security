@@ -234,7 +234,7 @@ Scanner command and result:
 
 ```bash
 security/tools/scan.sh examples/scanner-fixtures/risky-skill.md
-# exit 1, 11 issue(s) found
+# exit 1, 13 issue(s) found
 ```
 
 Manual checks completed:
