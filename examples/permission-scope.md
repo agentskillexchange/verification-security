@@ -57,6 +57,28 @@ the requested action and resource explicit, as recommended by the
 | GitHub issue read | Read the linked defect report | One named issue; read only | The issue contains the reproduction details | No repository write, PR, or organization access | None; no external action | Linked issue and submitted instructions |
 ```
 
+For a permission whose actual scope depends on a platform, credential, or
+configuration claim, make `Evidence checked` specific enough for a second
+reviewer to compare the intended boundary with the configured one:
+
+```text
+Permission claim: [for example, token can read only the named project]
+Skill version: [commit, tag, or PR SHA]
+Authoritative source: [official permission or scope documentation]
+Source version or date checked: [version, release, or YYYY-MM-DD]
+Submitted configuration: [setting, token scope name, or reviewed path; never the secret]
+Bounded observation: [non-production check, result, and environment]
+Mismatch or unknown limit: [none, or the exact broader/unverified behavior]
+Recheck trigger: [new scope, resource, service, credential, or provider-source change]
+```
+
+The platform documentation shows what a permission is meant to allow; the
+submitted configuration and bounded observation show what this skill can
+actually access. Do not treat a permission label, a successful login, or a
+documentation link alone as proof of the narrower boundary. Use the
+[Source-Backed Verification](source-backed-verification.md) pattern when the
+claim affects the review outcome.
+
 Choose the outcome from the completed record:
 
 - **Security Reviewed** only when every requested permission has a stated task
@@ -72,6 +94,12 @@ Re-review when a new tool, access mode, resource, or operation is added; do
 not assume an existing label covers it. Copy the completed rows into the
 [`Reviewer Evidence Packet`](reviewer-evidence-packet.md) and summarize the
 decision in the [`Review Decision Note`](review-decision-note.md).
+
+Also re-review when a provider changes the documented meaning of a permission
+or the submitted credential/configuration changes without adding a new tool.
+Until the source, configured scope, and bounded observation are refreshed,
+keep the skill **Published only** rather than carrying forward **Security
+Reviewed**.
 
 ## NOT for
 
