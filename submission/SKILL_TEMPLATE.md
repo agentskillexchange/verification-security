@@ -72,6 +72,22 @@ or a planned rollback alone does not prove that a live action is safe to
 approve. See [`examples/production-boundaries.md`](../examples/production-boundaries.md)
 for a completed reviewer-facing recheck record.
 
+### Paid, Recurring, or Notification Action Boundary (if applicable)
+
+For each action that can create a charge, renew a paid resource, or send a
+recurring notification, record the scope a reviewer and user need to approve:
+
+- Action, cost, and billing boundary: [exact operation, known price or estimate, billing account/project, and any price limit]
+- Destination, audience, and frequency: [recipient or service, data sent, schedule or recurrence, and maximum run count]
+- Explicit authorization: [the user-visible approval that names the cost, destination, and frequency before the first live run]
+- Safe first run: [dry run, sandbox, or one-time bounded test; observed result; and where it ran]
+- Stop, cancellation, and owner: [how to halt future runs, cancel or downgrade the resource, and who is accountable]
+- Unresolved limits: [unknown price, quota, recipient, or schedule behavior, or "none"]
+
+Do not create paid work or a recurring alert from an implied request. If the
+price, authorization, destination, or frequency is unknown, stop before the
+live action and request clarification or reviewer follow-up.
+
 ### Remote Setup or Transport Fallback (if applicable)
 
 If this skill downloads code, installs a helper, or calls an external service,
